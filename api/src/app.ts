@@ -24,12 +24,12 @@ const server = new Server();
 server.app.use('/api', server.router);
 
 // Have Node serve the files for our built React app
-// server.app.use(express.static(path.resolve(__dirname, '/client')));
+server.app.use(express.static(path.resolve(__dirname, '/client')));
 
 // All other GET requests not handled before will return our React app
-// server.app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-// });
+server.app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
 // make server listen on some port
 ((port = process.env.PORT) => {
