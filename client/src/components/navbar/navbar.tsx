@@ -5,7 +5,7 @@ import '../../style/navbar/navbar.css'
 class MyNavbar extends Component {
     render() {
         return (
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="my-navbar">
             <Container>
             <Navbar.Brand href="#home">Chi-Wei Lien</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
