@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Container, Col } from 'react-bootstrap';
-import Code from './code';
+import Code from './Code';
 import '../../style/index/LifeMotto.css'
 
 class LifeMotto extends Component {

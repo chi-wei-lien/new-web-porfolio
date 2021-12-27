@@ -1,0 +1,39 @@
+.toolbar {
+  background-color: #2F2F2F;
+  padding: 7px;
+}
+
+.icon-list {
+  text-align: center;
+}
+
+.windows-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.notion-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+}
+
+.visual-studio-code-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+}
+
+.intelliji-icon {
+  width: 30px;
+  height: 30px;
+  margin: 0px 10px;
+}
+
+.time {
+  color: white;
+  text-align: right;
+  font-size: 13px;
+  margin-bottom: 0px;
+  font-family: 'Inconsolata', monospace;
+}

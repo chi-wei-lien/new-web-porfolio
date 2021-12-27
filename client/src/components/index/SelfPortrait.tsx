@@ -6,7 +6,7 @@ import '../../style/index/SelfPortrait.css';
 class SelfPortrait extends Component {
   render() {
     return (
-      <Col className="imageBG">
+      <Col className="imageBG mobile-hide">
         <Container>
           <img id="me" src="/images/index/me.png" />
         </Container>
