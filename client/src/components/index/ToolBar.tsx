@@ -5,6 +5,7 @@ import '../../style/index/ToolBar.css';
 
 class ToolBar extends Component {
   render() {
+    setInterval(showTime, 1000);
     return (
       <Row className="toolbar">
         <Col md="4" className="mobile-hide">
@@ -28,12 +29,24 @@ class ToolBar extends Component {
           <p id="caption" className="mobile-hide"></p>
         </Col>
         <Col md="2" className="mobile-hide">
-          <p className="time" id="id" />
+          <p className="time" id="time" />
           <p className="time" id="date" />
         </Col>
       </Row>
     )
   }
+}
+
+function showTime(){
+  var currentTime = new Date();
+  var dateDisplay = currentTime.getFullYear() + "-" + (currentTime.getMonth()+1) + "-" + currentTime.getDate();
+  var timeDisplay = currentTime.getHours() + ":" + currentTime.getMinutes() + ":" + currentTime.getSeconds();
+  var dateElement = document.getElementById("date");
+  var timeElement = document.getElementById("time");
+  if (dateElement !== null && timeElement !== null) {
+    dateElement.innerHTML = dateDisplay;
+    timeElement.innerHTML = timeDisplay;
+  }  
 }
 
 export default ToolBar;
