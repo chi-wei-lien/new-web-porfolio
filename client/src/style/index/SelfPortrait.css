@@ -1,0 +1,9 @@
+.imageBG {
+  background-color: #F9F1D0;
+}
+
+#me {
+  width: 100%;
+  padding-top: 120.03px;
+  transition: transform 1s;
+}
