@@ -3,8 +3,33 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 import '../../style/index/Footer.css';
 
+var socialWordCount = 0;
+var speed = 100;
+var socialMedia = 'My Social Media.';
+var launchedSocialType = false;
+var socialElement = document.getElementById("my-social-media");
+
+function socialTypeWriter() {
+    if (socialWordCount < socialMedia.length) {
+        if (socialElement !== null) {
+          socialElement.innerHTML += socialMedia.charAt(socialWordCount);
+          socialWordCount++;
+          setTimeout(socialTypeWriter, speed);
+        }
+    }
+}
+
+
+
 class Footer extends Component {
   render() {
+    window.addEventListener('scroll', function (event) {
+      var currentScrollingLocation = document.documentElement.scrollTop;
+      if(currentScrollingLocation > 400 && !launchedSocialType){
+          socialTypeWriter();
+          launchedSocialType = true;
+      }
+    }, false);
     return (
       <Row className="footer">
         <Container fluid>
