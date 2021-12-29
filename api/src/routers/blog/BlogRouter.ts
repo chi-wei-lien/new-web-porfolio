@@ -27,6 +27,14 @@ class BlogRouter {
     this._router.post("/add", async (req: Request, res: Response) => {
       return this._controller.addBlog(req, res);
     });
+
+    this._router.put("/update/:id", async (req: Request, res: Response) => {
+      return this._controller.updateBlog(req, res);
+    });
+
+    this._router.delete("/delete/:id", async (req: Request, res: Response) => {
+      return this._controller.deleteBlog(req, res);
+    });
   }
 }
 
