@@ -20,7 +20,7 @@ class MasterRouter {
    */
   private _configure() {
     this._router.use('/blogs', this._subrouterA);
-    this._router.use('/themeB', this._subrouterB);
+    this._router.use('/', this._subrouterB);
   }
 }
 

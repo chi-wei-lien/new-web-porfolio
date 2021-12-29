@@ -24,24 +24,17 @@ class Server {
 // initialize server app
 const server = new Server();
 
+//Connecting to db
+connectToDatabase();
+
 // make server app handle any route starting with '/api'
 server.app.use('/api', server.jsonParser, server.router);
 
-// Have Node serve the files for our built React app
-server.app.use(express.static(path.resolve(__dirname, '/client')));
-
-// All other GET requests not handled before will return our React app
-// server.app.get('*', (req, res) => {
-//     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
-// });
-
 // make server listen on some port
-connectToDatabase();
-
-// ((port = process.env.PORT) => {
-//     server.app.listen(port, () => console.log(`> Listening on port ${port}`));
-// })();
-
-((port = 5000) => {
-  server.app.listen(port, () => console.log(`> Listening on port ${port}`));
+((port = process.env.PORT || 5000) => {
+    server.app.listen(port, () => console.log(`> Listening on port ${port}`));
 })();
+
+// ((port = 5000) => {
+//   server.app.listen(port, () => console.log(`> Listening on port ${port}`));
+// })();

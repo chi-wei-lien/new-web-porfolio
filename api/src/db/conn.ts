@@ -7,7 +7,7 @@ export const collections: { blogs?: mongoDB.Collection } = {}
 // Initialize Connection
 export async function connectToDatabase() {
   let connString = process.env.DB_CONN_STRING;
-  let collectionName = process.env.GAMES_COLLECTION_NAME;
+  let collectionName = process.env.BLOGS_COLLECTION_NAME;
 
   if (connString != null && collectionName != null) {
     const client: mongoDB.MongoClient = new mongoDB.MongoClient(connString);          
