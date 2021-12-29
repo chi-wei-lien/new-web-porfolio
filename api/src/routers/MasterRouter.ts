@@ -19,7 +19,7 @@ class MasterRouter {
    * Connect routes to their matching routers.
    */
   private _configure() {
-    this._router.use('/themeA', this._subrouterA);
+    this._router.use('/blogs', this._subrouterA);
     this._router.use('/themeB', this._subrouterB);
   }
 }
