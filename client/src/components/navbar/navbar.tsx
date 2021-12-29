@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
 import '../../style/navbar/navbar.css'
 
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 class MyNavbar extends Component {
   render() {
     return (
@@ -13,8 +15,8 @@ class MyNavbar extends Component {
         <Nav className="me-auto">
         </Nav>
         <Nav>
-          <Nav.Link href="#show_home">show_home()</Nav.Link>
-          <Nav.Link href="#who_am_i">who_am_i()</Nav.Link>
+          {/* <Nav.Link as={Link} to="/show_home">show_home()</Nav.Link> */}
+          <Nav.Link as={Link} to="/who_am_i">who_am_i()</Nav.Link>
           <Nav.Link href="#show_blogs">show_blogs()</Nav.Link>
           <Nav.Link href="#show_art_gallery">show_art_gallery()</Nav.Link>
         </Nav>

@@ -2,16 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import WhoAml from './components/who-am-i/who';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      {/* <App /> */}
       <Routes>
-        <Route path="/" element={App} />
-        <Route path="/who_am_i" element={App} />
+        <Route path="/" element={<App />} />
+        <Route path="/who_am_i" element={<WhoAml />} />
       </Routes>
     </Router>
   </React.StrictMode>,
