@@ -34,7 +34,3 @@ server.app.use('/api', server.jsonParser, server.router);
 ((port = process.env.PORT || 5000) => {
     server.app.listen(port, () => console.log(`> Listening on port ${port}`));
 })();
-
-// ((port = 5000) => {
-//   server.app.listen(port, () => console.log(`> Listening on port ${port}`));
-// })();
