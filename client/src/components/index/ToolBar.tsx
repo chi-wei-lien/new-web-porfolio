@@ -13,7 +13,6 @@ function captionTypeWriter() {
   if (favoriteWordCount < caption.length) {
     captionElement = document.getElementById("caption");
     if (captionElement !== null) {
-      console.log('hi');
       captionElement.innerHTML += caption.charAt(favoriteWordCount);
       favoriteWordCount++;
       setTimeout(captionTypeWriter, captionSpeed);

@@ -22,3 +22,14 @@
 .login-button {
   width: 100% !important;
 }
+
+@media only screen and (max-width: 780px) {
+  .login-button-container {
+    padding-top: 20%;
+  }
+  .login {
+    width: 80%;
+    height: 70%;
+    margin-bottom: 80px;
+  }
+}
