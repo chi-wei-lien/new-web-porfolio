@@ -21,7 +21,7 @@ class LoginRouter {
       return this._controller.getUsers(req, res);
     });
 
-    this._router.get("/blog/:id", async (req: Request, res: Response) => {
+    this._router.get("/user/:id", async (req: Request, res: Response) => {
       return this._controller.findUsers(req, res);
     });
 
