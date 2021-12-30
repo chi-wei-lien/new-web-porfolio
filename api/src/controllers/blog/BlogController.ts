@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb";
-import { collections } from "../db/conn";
-import Blog from "../models/blogs";
+import { collections } from "../../db/conn";
+import Blog from "../../models/blogs";
 import { NextFunction, Request, Response, Router } from 'express';
 
 

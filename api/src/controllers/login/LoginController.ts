@@ -1,4 +1,4 @@
-class ThemeBController {
+class LoginController {
     defaultMethod() {
         return {
             text: `You've reached the ${this.constructor.name} default method`
@@ -6,4 +6,4 @@ class ThemeBController {
     }
 }
   
-export = new ThemeBController();
+export = new LoginController();

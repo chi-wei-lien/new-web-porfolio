@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import ThemeBController from '../../controllers/ThemeBController';
+import ThemeBController from '../../controllers/login/LoginController';
 
-class ThemeBRouter {
+class LoginRouter {
   private _router = Router();
   private _controller = ThemeBController;
 
@@ -24,4 +24,4 @@ class ThemeBRouter {
   }
 }
 
-export = new ThemeBRouter().router;
+export = new LoginRouter().router;

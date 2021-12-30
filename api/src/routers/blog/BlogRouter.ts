@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response, Router } from 'express';
-import ThemeAController from '../../controllers/BlogController';
+import ThemeAController from '../../controllers/blog/BlogController';
 
 class BlogRouter {
   private _router = Router();

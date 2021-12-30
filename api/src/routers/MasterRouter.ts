@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import BlogRouter from './blog/BlogRouter';
-import ThemeBRouter from './themeB/ThemeBRouter';
+import ThemeBRouter from './login/LoginRouter';
 
 class MasterRouter {
   private _router = Router();
