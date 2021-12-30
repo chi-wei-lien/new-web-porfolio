@@ -34,7 +34,11 @@ class LoginController {
 
   async addUser(req: Request, res: Response) {
     try {
-      const newUser = req.body as User;
+
+      /**
+       * the reason why it is user, is because the parameter passed in is an object
+       */
+      const newUser = req.body.user as User;
       const result = await collections.users?.insertOne(newUser);
 
       result

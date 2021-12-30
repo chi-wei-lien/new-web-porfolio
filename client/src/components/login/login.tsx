@@ -3,6 +3,7 @@ import firebase from "../../config/firebase-config";
 import socialMediaAuth from "../../service/auth";
 import { Row, Container, Col } from 'react-bootstrap';
 import GithubButton from 'react-github-login-button';
+import axios from "axios";
 
 import { githubProvider } from "../../service/authMethods";
 
@@ -11,7 +12,17 @@ import '../../style/login/login.css';
 
 const login = async (provider: firebase.auth.GithubAuthProvider) => {
   const res = await socialMediaAuth(provider);
-  console.log(res);
+  const user = {
+    "email": res.email
+  }
+  axios.post(`http://localhost:5000/api/users/add`, { user }, {
+    headers: { "Access-Control-Allow-Origin": "*" }
+  })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
+  // console.log(res.email);
 }
 
 class Login extends Component {
