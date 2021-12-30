@@ -1,0 +1,24 @@
+.login {
+  background-color: #45516E;
+  /* padding: 10px; */
+  width: 70%;
+  height: 70%;
+  margin-top: 100px;
+  border-radius: 10px;
+}
+
+.login-button-container {
+  padding-top: 30%;
+  width: 80%;
+  font-family: 'Inconsolata', monospace;
+  color: #ECECEC;
+}
+
+.login-button-container h1 {
+  text-align: center;
+  
+}
+
+.login-button {
+  width: 100% !important;
+}

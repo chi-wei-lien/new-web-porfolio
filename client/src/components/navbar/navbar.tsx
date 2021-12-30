@@ -15,10 +15,10 @@ class MyNavbar extends Component {
         <Nav className="me-auto">
         </Nav>
         <Nav>
-          <Nav.Link as={Link} to="/">show_home()</Nav.Link>
           <Nav.Link as={Link} to="/who_am_i">who_am_i()</Nav.Link>
           <Nav.Link href="#show_blogs">show_blogs()</Nav.Link>
           <Nav.Link href="#show_art_gallery">show_art_gallery()</Nav.Link>
+          <Nav.Link as={Link} to="/login">login()</Nav.Link>
         </Nav>
       </Navbar.Collapse>
       </Container>
