@@ -17,9 +17,24 @@ class LoginRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
-    this._router.get('/', (req: Request, res: Response, next: NextFunction) => {
-        // res.status(200).json(this._controller.defaultMethod());
-        // res.send(process.env.DB_CONN_STRING);
+    this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.getUsers(req, res);
+    });
+
+    this._router.get("/blog/:id", async (req: Request, res: Response) => {
+      return this._controller.findUsers(req, res);
+    });
+
+    this._router.post("/add", async (req: Request, res: Response) => {
+      return this._controller.addUser(req, res);
+    });
+
+    this._router.put("/update/:id", async (req: Request, res: Response) => {
+      return this._controller.updateUser(req, res);
+    });
+
+    this._router.delete("/delete/:id", async (req: Request, res: Response) => {
+      return this._controller.deleteUser(req, res);
     });
   }
 }
