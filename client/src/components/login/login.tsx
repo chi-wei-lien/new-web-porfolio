@@ -11,10 +11,13 @@ import '../../style/login/login.css';
 
 
 const login = async (provider: firebase.auth.GithubAuthProvider) => {
-  const res = await socialMediaAuth(provider);
-  const user = {
-    "email": res.email
-  }
+  // const res = await socialMediaAuth(provider);
+  // if (res.email) {
+  let userData = new FormData();
+  // userData.append("email", res.email);
+  userData.append("email", 'test@gmail.com');
+  console.log('login successfully');
+
   // axios.post(`https://test-web-portfolio.herokuapp.com/api/users/add`, { user }, {
   //   headers: { "Access-Control-Allow-Origin": "*" }
   // })
@@ -23,11 +26,14 @@ const login = async (provider: firebase.auth.GithubAuthProvider) => {
   //     console.log(res.data);
   //   })
 
-  axios.get(`http://localhost:5000/api/login`)
+  axios.post(`http://localhost:5000/api/login`, { userData }, {
+    withCredentials: true
+  })
     .then(res => {
       console.log(res);
       console.log(res.data);
     })
+  // }
 }
 
 class Login extends Component {

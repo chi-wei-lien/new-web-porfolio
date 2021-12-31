@@ -17,7 +17,7 @@ class LoginRouter {
    * Connect routes to their matching controller endpoints.
    */
   private _configure() {
-    this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/', async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.login(req, res);
     });
 
