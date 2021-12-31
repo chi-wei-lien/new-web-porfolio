@@ -27,8 +27,6 @@ const server = new Server();
 //Connecting to db
 connectToDatabase();
 
-// server.app.use(cors);
-
 // make server app handle any route starting with '/api'
 server.app.use('/api', server.jsonParser, server.router);
 

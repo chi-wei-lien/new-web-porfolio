@@ -18,8 +18,12 @@ class LoginRouter {
    */
   private _configure() {
     this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
-      return this._controller.getUsers(req, res);
+      return this._controller.login(req, res);
     });
+
+    // this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+    //   return this._controller.getUsers(req, res);
+    // });
 
     this._router.get("/user/:id", async (req: Request, res: Response) => {
       return this._controller.findUsers(req, res);

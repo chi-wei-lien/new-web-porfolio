@@ -15,14 +15,19 @@ const login = async (provider: firebase.auth.GithubAuthProvider) => {
   const user = {
     "email": res.email
   }
-  axios.post(`https://test-web-portfolio.herokuapp.com/api/users/add`, { user }, {
-    headers: { "Access-Control-Allow-Origin": "*" }
-  })
+  // axios.post(`https://test-web-portfolio.herokuapp.com/api/users/add`, { user }, {
+  //   headers: { "Access-Control-Allow-Origin": "*" }
+  // })
+  //   .then(res => {
+  //     console.log(res);
+  //     console.log(res.data);
+  //   })
+
+  axios.get(`http://localhost:5000/api/login`)
     .then(res => {
       console.log(res);
       console.log(res.data);
     })
-  // console.log(res.email);
 }
 
 class Login extends Component {

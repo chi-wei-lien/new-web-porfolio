@@ -1,9 +1,21 @@
 import { ObjectId } from "mongodb";
 import { collections } from "../../db/conn";
 import User from "../../models/user";
+import jwt from "jsonwebtoken";
 import { NextFunction, Request, Response, Router } from 'express';
 
 class LoginController {
+  async login(req: Request, res: Response) {
+    const token = jwt.sign({ email: 'lien2@purdue.edu', role: "admin" }, "jfaw;eoijfnwar32");
+    return res
+      .cookie("access_token", token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+      })
+      .status(200)
+      .json({ message: "Logged in successfully" });
+  }
+
   async getUsers(req: Request, res: Response) {
     try {
       if (collections.users != null) {
