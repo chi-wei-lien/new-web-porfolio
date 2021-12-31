@@ -15,7 +15,7 @@ const login = async (provider: firebase.auth.GithubAuthProvider) => {
   const user = {
     "email": res.email
   }
-  axios.post(`http://localhost:5000/api/users/add`, { user }, {
+  axios.post(`https://test-web-portfolio.herokuapp.com/api/users/add`, { user }, {
     headers: { "Access-Control-Allow-Origin": "*" }
   })
     .then(res => {

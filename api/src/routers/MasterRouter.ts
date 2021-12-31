@@ -3,7 +3,7 @@ import BlogRouter from './blog/BlogRouter';
 import LoginRouter from './login/LoginRouter';
 import cors from 'cors';
 
-const allowedOrigins = ['http://localhost:3000', 'https://loophole.engineer'];
+const allowedOrigins = ['https://loophole.engineer', 'http://localhost:3000'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins
