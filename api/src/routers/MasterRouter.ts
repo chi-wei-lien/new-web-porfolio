@@ -57,10 +57,12 @@ class MasterRouter {
       resave: false,
       cookie: {
         sameSite: false,
-        secure: false,
-        maxAge: 7000,
-        httpOnly: true,
-        domain: "loophole.engineer"
+        secure: process.env.NODE_ENV === "production",
+        /**
+         * the cookie will expires after an hour
+         */
+        maxAge: 60 * 60 * 1000,
+        httpOnly: true
       },
     }))
     this._router.use('/blogs', this._subBlogRouter);

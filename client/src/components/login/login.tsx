@@ -18,21 +18,21 @@ const login = async (provider: firebase.auth.GithubAuthProvider) => {
       email: res.email
     }
 
-    axios.post(`https://test-web-portfolio.herokuapp.com/api/login`, { user }, {
-      withCredentials: true
-    })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-
-    // axios.post(`http://localhost:5000/api/login`, { user }, {
+    // axios.post(`https://test-web-portfolio.herokuapp.com/api/login`, { user }, {
     //   withCredentials: true
     // })
     //   .then(res => {
     //     console.log(res);
     //     console.log(res.data);
     //   })
+
+    axios.post(`http://localhost:5000/api/login`, { user }, {
+      withCredentials: true
+    })
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 }
 
