@@ -4,7 +4,13 @@ import LoginRouter from './login/LoginRouter';
 import cors from 'cors';
 import expressSession from "express-session";
 import MongoDBStore from "connect-mongodb-session";
+import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
+
+// load the environment variables from the .env file
+dotenv.config({
+  path: '.env'
+});
 
 const allowedOrigins = ['https://loophole.engineer', 'http://localhost:3000'];
 
@@ -20,7 +26,7 @@ if (process.env.DB_CONN_STRING != null) {
   store = new mongoStore({
     collection: "userSessions",
     uri: process.env.DB_CONN_STRING,
-    expires: 1000,
+    expires: 10000,
   });
 }
 
@@ -52,8 +58,9 @@ class MasterRouter {
       cookie: {
         sameSite: false,
         secure: false,
-        maxAge: 10000,
+        maxAge: 7000,
         httpOnly: true,
+        domain: "loophole.engineer"
       },
     }))
     this._router.use('/blogs', this._subBlogRouter);

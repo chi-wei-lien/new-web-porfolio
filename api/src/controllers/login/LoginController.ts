@@ -15,21 +15,11 @@ declare module 'express-session' {
 
 class LoginController {
   async login(req: Request, res: Response) {
-    // const token = jwt.sign({ email: 'lien2@purdue.edu', role: "admin" }, "jfaw;eoijfnwar32");
-    // return res
-    //   .cookie("access_token", token, {
-    //     httpOnly: true,
-    //     secure: process.env.NODE_ENV === "production",
-    //   })
-    //   .status(200)
-    //   .json({ message: "Logged in successfully" });
-
-
     const sessionUser = {
-      email: req.body.email,
+      email: req.body.user.email,
     };
     req.session.user = sessionUser;
-    res.send(req.body.email);
+    res.send(req.body.user.email);
   }
 
   async getUsers(req: Request, res: Response) {

@@ -6,9 +6,9 @@ const socialMediaAuth = (provider: firebase.auth.GithubAuthProvider) => {
       return data.user;
     })
   } catch (error: unknown) {
-    console.log(error);
+    console.log(error)
   }
-  
+
 };
 
 export default socialMediaAuth;
