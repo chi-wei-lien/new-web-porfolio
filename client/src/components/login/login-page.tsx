@@ -1,6 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
-
 //import custom react element
 import MyNavbar from '../navbar/navbar';
 import Login from './login';
@@ -9,8 +6,9 @@ import ToolBar from '../index/ToolBar';
 import Projects from '../index/Projects';
 import Footer from '../footer/newfooter';
 import Loggedin from './loggedin';
+import Admin from './admin';
 
-import { Row, Container, Col } from 'react-bootstrap';
+import { Row, Container } from 'react-bootstrap';
 
 import '../../style/index/index.css';
 
@@ -18,6 +16,30 @@ import '../../style/index/index.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 const LoginPage = () => {
+  /**
+   * If the user is one of the admin
+   * show edit blog page
+   */
+  if (localStorage.getItem('admin')?.localeCompare("true") == 0) {
+    return (
+      <>
+        <MyNavbar />
+        <Container fluid>
+          <Row>
+            <Admin />
+            <SelfPortrait />
+          </Row>
+          <ToolBar />
+          <Projects />
+          <Footer />
+        </Container>
+      </>
+    );
+  }
+
+  /**
+   * show that user are logged in
+   */
   if (localStorage.getItem('user')) {
     return (
       <>

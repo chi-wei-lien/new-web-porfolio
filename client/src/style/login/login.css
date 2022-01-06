@@ -23,6 +23,11 @@
   width: 100% !important;
 }
 
+.blog-edit {
+  width: 100% !important;
+  margin-bottom: 10px;
+}
+
 @media only screen and (max-width: 780px) {
   .login-button-container {
     padding-top: 20%;
