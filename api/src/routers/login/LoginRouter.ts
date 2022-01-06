@@ -20,6 +20,9 @@ class LoginRouter {
     this._router.post('/', async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.login(req, res);
     });
+    this._router.post('/check', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.check(req, res);
+    });
   }
 }
 

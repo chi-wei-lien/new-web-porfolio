@@ -33,6 +33,10 @@ const Login = () => {
       })
         .then(res => {
           localStorage.setItem('token', res.data.token)
+          console.log(res.data);
+          const newUser = {
+            email: user.email,
+          }
           setUser(user);
           console.log(user);
         })
