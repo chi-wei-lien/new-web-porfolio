@@ -13,7 +13,6 @@ const Login = () => {
   const login = async (provider: firebase.auth.GithubAuthProvider) => {
     const res = await socialMediaAuth(provider)
     if (res.email) {
-      console.log(res);
       const user = {
         email: res.email
       }

@@ -1,10 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-
 //import custom react element
 import MyNavbar from '../navbar/navbar';
 import axios from "axios";
-
+import Error from '../error/error';
 
 import { Container } from 'react-bootstrap';
 
@@ -26,6 +23,16 @@ const Blogedit = () => {
         }
       })
     return false;
+  }
+
+  /**
+   * If the user is not one of the admin, it will kick hime
+   * to the no access page
+   */
+  if (localStorage.getItem('admin')?.localeCompare("true") != 0) {
+    return (
+      <Error />
+    );
   }
 
   return (

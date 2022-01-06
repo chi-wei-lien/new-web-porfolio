@@ -5,6 +5,7 @@ import App from './App';
 import WhoAml from './components/who-am-i/who';
 import LoginPage from './components/login/login-page';
 import Blogedit from './components/blogs/blogedit';
+import Error from './components/error/error';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
