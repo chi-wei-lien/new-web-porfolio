@@ -1,4 +1,4 @@
-import { Component } from "react";
+import { useState } from "react";
 import firebase from "../../config/firebase-config";
 import socialMediaAuth from "../../service/auth";
 import { Row, Container, Col } from 'react-bootstrap';
@@ -9,49 +9,49 @@ import { githubProvider } from "../../service/authMethods";
 
 import '../../style/login/login.css';
 
+const Login = () => {
+  const [user, setUser] = useState<object>();
 
-const login = async (provider: firebase.auth.GithubAuthProvider) => {
-  const res = await socialMediaAuth(provider)
-  if (res.email) {
+  const login = async (provider: firebase.auth.GithubAuthProvider) => {
+    const res = await socialMediaAuth(provider)
+    if (res.email) {
 
-    const user = {
-      email: res.email
-    }
+      const user = {
+        email: res.email
+      }
 
-    // axios.post(`https://test-web-portfolio.herokuapp.com/api/login`, { user }, {
-    //   withCredentials: true
-    // })
-    //   .then(res => {
-    //     console.log(res);
-    //     console.log(res.data);
-    //   })
+      // axios.post(`https://test-web-portfolio.herokuapp.com/api/login`, { user }, {
+      //   withCredentials: true
+      // })
+      //   .then(res => {
+      //     console.log(res);
+      //     console.log(res.data);
+      //   })
 
-    axios.post(`http://localhost:5000/api/login`, { user }, {
-      withCredentials: true
-    })
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
+      axios.post(`http://localhost:5000/api/login`, { user }, {
+        withCredentials: true
       })
+        .then(res => {
+          localStorage.setItem('token', res.data.token)
+          setUser(user);
+          console.log(user);
+        })
+    }
   }
-}
 
-class Login extends Component {
-  render() {
-    return (
-      <Col className="codeBG">
-        <Container className="login">
-          <Container className="login-button-container">
-            <h1>Login</h1>
-            <p>Currently there is nothing you can do after you login.<br />But soon there will be :)</p>
-            <GithubButton className="login-button"
-              onClick={() => login(githubProvider)}
-            />
-          </Container>
+  return (
+    <Col className="codeBG">
+      <Container className="login">
+        <Container className="login-button-container">
+          <h1>Login</h1>
+          <p>Currently there is nothing you can do after you login.<br />But soon there will be :)</p>
+          <GithubButton className="login-button"
+            onClick={() => login(githubProvider)}
+          />
         </Container>
-      </Col>
-    )
-  }
+      </Container>
+    </Col>
+  )
 }
 
 export default Login;

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import BlogRouter from './blog/BlogRouter';
+// import BlogRouter from './blog/BlogRouter';
 import LoginRouter from './login/LoginRouter';
 import cors from 'cors';
 import expressSession from "express-session";
@@ -33,7 +33,7 @@ if (process.env.DB_CONN_STRING != null) {
 
 class MasterRouter {
   private _router = Router();
-  private _subBlogRouter = BlogRouter;
+  // private _subBlogRouter = BlogRouter;
   private _subUserRouter = LoginRouter;
 
   get router() {
@@ -49,23 +49,8 @@ class MasterRouter {
    */
   private _configure() {
     this._router.use(cors(options));
-    this._router.use(expressSession({
-      name: "test_sess",
-      secret: "SESS_SECRET",
-      store: store,
-      saveUninitialized: false,
-      resave: false,
-      cookie: {
-        sameSite: false,
-        secure: process.env.NODE_ENV === "production",
-        /**
-         * the cookie will expires after an hour
-         */
-        maxAge: 60 * 60 * 1000,
-        httpOnly: true
-      },
-    }))
-    this._router.use('/blogs', this._subBlogRouter);
+
+    // this._router.use('/blogs', this._subBlogRouter);
     this._router.use('/login', this._subUserRouter);
   }
 }

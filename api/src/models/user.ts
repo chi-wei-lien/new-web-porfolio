@@ -1,8 +1,11 @@
-import { ObjectId } from "mongodb";
+import { Schema, model, connect } from 'mongoose';
 
-export default class User {
-  constructor(
-    public email: string,
-    public id?: ObjectId
-  ) { }
+interface User {
+  email: string;
 }
+
+const schema = new Schema<User>({
+  email: { type: String, required: true }
+});
+
+export default model<User>('User', schema);

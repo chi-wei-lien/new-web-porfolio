@@ -3,12 +3,20 @@ import dotenv from 'dotenv';
 import express from 'express';
 import MasterRouter from './routers/MasterRouter';
 import bodyParser from 'body-parser';
-import { connectToDatabase } from './db/conn';
+import mongoose from 'mongoose';
 
-// load the environment variables from the .env file
 dotenv.config({
   path: '.env'
 });
+
+/**
+ * Connecting to database
+ */
+mongoose.connect(process.env.DB_CONN_STRING || "");
+const db = mongoose.connection
+
+db.on("error", (err) => { console.error(err) })
+db.once("open", () => { console.log("DB started successfully") })
 
 /**
  * Express server application class.
@@ -23,9 +31,6 @@ class Server {
 
 // initialize server app
 const server = new Server();
-
-//Connecting to db
-connectToDatabase();
 
 // make server app handle any route starting with '/api'
 server.app.use('/api', server.jsonParser, server.router);
