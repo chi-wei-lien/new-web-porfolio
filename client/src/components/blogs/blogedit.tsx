@@ -39,7 +39,6 @@ const Blogedit = () => {
       <MyNavbar />
       <form onSubmit={handleSubmit} className="editor-container">
         <Editor
-          initialValue="<p>This is the initial content of the editor.</p>"
           apiKey="83y8lsfnuk86q6vm9llhy54rxn9c9oa2z8ttovkq59fix13d"
           onEditorChange={handleChange}
           init={{
