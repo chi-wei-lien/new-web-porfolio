@@ -10,12 +10,10 @@ import { githubProvider } from "../../service/authMethods";
 import '../../style/login/login.css';
 
 const Login = () => {
-  const [user, setUser] = useState<object>();
-
   const login = async (provider: firebase.auth.GithubAuthProvider) => {
     const res = await socialMediaAuth(provider)
     if (res.email) {
-
+      console.log(res);
       const user = {
         email: res.email
       }
@@ -33,12 +31,9 @@ const Login = () => {
       })
         .then(res => {
           localStorage.setItem('token', res.data.token)
-          console.log(res.data);
-          const newUser = {
-            email: user.email,
-          }
-          setUser(user);
-          console.log(user);
+          localStorage.setItem('user', user.email);
+          localStorage.setItem('admin', res.data.admin);
+          window.location.reload();
         })
     }
   }

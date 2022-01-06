@@ -8,6 +8,7 @@ import SelfPortrait from '../index/SelfPortrait';
 import ToolBar from '../index/ToolBar';
 import Projects from '../index/Projects';
 import Footer from '../footer/newfooter';
+import Loggedin from './loggedin';
 
 import { Row, Container, Col } from 'react-bootstrap';
 
@@ -16,7 +17,23 @@ import '../../style/index/index.css';
 //import boostrap css
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function LoginPage() {
+const LoginPage = () => {
+  if (localStorage.getItem('user')) {
+    return (
+      <>
+        <MyNavbar />
+        <Container fluid>
+          <Row>
+            <Loggedin />
+            <SelfPortrait />
+          </Row>
+          <ToolBar />
+          <Projects />
+          <Footer />
+        </Container>
+      </>
+    );
+  }
   return (
     <>
       <MyNavbar />
