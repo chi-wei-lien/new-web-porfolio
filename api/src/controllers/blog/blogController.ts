@@ -5,6 +5,7 @@ import { Request, Response } from 'express';
 class BlogController {
   async getAll(req: Request, res: Response) {
     const blogs = await Blog.find();
+    res.send(blogs);
     console.log(blogs);
   }
 }

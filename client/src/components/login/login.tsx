@@ -17,15 +17,13 @@ const Login = () => {
         email: res.email
       }
 
-      // axios.post(`https://test-web-portfolio.herokuapp.com/api/login`, { user }, {
-      //   withCredentials: true
-      // })
-      //   .then(res => {
-      //     console.log(res);
-      //     console.log(res.data);
-      //   })
+      let apiAddress = "https://test-web-portfolio.herokuapp.com/api/login";
 
-      axios.post(`http://localhost:5000/api/login`, { user }, {
+      if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+        apiAddress = "http://localhost:5000/api/login";
+      }
+
+      axios.post(apiAddress, { user }, {
         withCredentials: true
       })
         .then(res => {

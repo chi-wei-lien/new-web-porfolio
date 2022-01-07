@@ -20,7 +20,7 @@ const MyNavbar = () => {
             </Nav>
             <Nav>
               <Nav.Link as={Link} to="/who_am_i">who_am_i()</Nav.Link>
-              <Nav.Link href="#show_blogs">show_blogs()</Nav.Link>
+              <Nav.Link href="/blogs">show_blogs()</Nav.Link>
               <Nav.Link href="#show_art_gallery">show_art_gallery()</Nav.Link>
               <Nav.Link as={Link} to="/login">hi({localStorage.getItem('user')})</Nav.Link>
             </Nav>

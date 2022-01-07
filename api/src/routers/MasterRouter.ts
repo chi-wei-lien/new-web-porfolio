@@ -1,5 +1,5 @@
 import { Router } from 'express';
-// import BlogRouter from './blog/BlogRouter';
+import BlogRouter from './blog/blogRouter';
 import LoginRouter from './login/LoginRouter';
 import cors from 'cors';
 import expressSession from "express-session";
@@ -33,7 +33,7 @@ if (process.env.DB_CONN_STRING != null) {
 
 class MasterRouter {
   private _router = Router();
-  // private _subBlogRouter = BlogRouter;
+  private _subBlogRouter = BlogRouter;
   private _subUserRouter = LoginRouter;
 
   get router() {
@@ -50,7 +50,7 @@ class MasterRouter {
   private _configure() {
     this._router.use(cors(options));
 
-    // this._router.use('/blogs', this._subBlogRouter);
+    this._router.use('/blogs', this._subBlogRouter);
     this._router.use('/login', this._subUserRouter);
   }
 }
