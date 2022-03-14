@@ -25,7 +25,7 @@ const Blogedit = () => {
   }
 
   /**
-   * If the user is not one of the admin, it will kick hime
+   * If the user is not one of the admin, it will kick him
    * to the no access page
    */
   if (localStorage.getItem('admin')?.localeCompare("true") != 0) {

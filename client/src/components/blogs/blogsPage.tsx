@@ -12,7 +12,7 @@ import '../../style/index/index.css';
 //import boostrap css
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-const Error = () => {
+const BlogPage = () => {
   return (
     <>
       <MyNavbar />
@@ -29,11 +29,13 @@ const Error = () => {
           <SelfPortrait />
         </Row>
         <ToolBar />
-        <Blogs />
+
+        {/* propBlog will be empty when called */}
+        <Blogs propBlog={[]}/>
         <Footer />
       </Container>
     </>
   );
 }
 
-export default Error;
+export default BlogPage;

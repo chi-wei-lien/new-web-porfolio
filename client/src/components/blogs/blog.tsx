@@ -1,40 +1,48 @@
 import React, { Component } from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 
 import '../../style/index/Project.css';
 
 interface Props {
-  propsSrc: string,
+  propsContent: string,
   propsName: string,
   propsPicSrc: string
 }
 
 interface State {
-  stateSrc: string,
+  stateContent: string,
   stateName: string,
   statePicSrc: string
 }
 
-class Projects extends Component<Props, State> {
+class Blog extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
       stateName: props.propsName,
-      stateSrc: props.propsSrc,
+      stateContent: props.propsContent,
       statePicSrc: props.propsPicSrc
     }
   }
 
   render() {
     return (
-      <div className="project">
-        <a href={this.state.stateSrc} title={this.state.stateName} target="_blank">
-          <img src={this.state.statePicSrc}></img>
-          <h3>{this.state.stateName}</h3>
-        </a>
-      </div>
+      <>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>{this.state.stateName}</Card.Title>
+            <Card.Text>
+              Some quick example text to build on the card title and make up the bulk of
+              the card's content.
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
+
+      </>
     );
   }
 }
 
-export default Projects;
+export default Blog;

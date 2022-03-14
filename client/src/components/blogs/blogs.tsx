@@ -1,5 +1,5 @@
-import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import React, {Component, useState} from 'react';
+import { Row, Col, Container, CardGroup } from 'react-bootstrap';
 import axios from 'axios';
 
 import Blog from './blog';
@@ -23,8 +23,92 @@ function typeWriter() {
   }
 }
 
-const Projects = () => {
-  let blogs: object[] = [];
+interface DataPlaceHolder {
+  propsContent: string,
+  propsName: string,
+  propsPicSrc: string
+}
+
+interface Props {
+  propBlog: Array<DataPlaceHolder>
+}
+
+interface State {
+  stateBlog: Array<DataPlaceHolder>,
+}
+
+class Blogs extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      stateBlog: [],
+    }
+  }
+
+  // Seems like there is a better way of doing this
+  componentWillMount() {
+    this.getBlogs();
+  }
+
+  getBlogs = () => {
+    let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs";
+
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      apiAddress = "http://localhost:5000/api/blogs";
+    }
+
+    axios.get(apiAddress, {
+      withCredentials: true
+    })
+      .then(res => {
+        for (let i = 0; i < res.data.length; i++) {
+          const newData = {
+            propsContent: res.data[i].content,
+            propsName: res.data[i].title,
+            propsPicSrc: ""
+          }
+
+          this.setState({
+            stateBlog: this.state.stateBlog.concat(newData)
+          })
+        }
+      })
+  }
+
+  test() {
+    console.log(this.state.stateBlog[0].propsName);
+  }
+
+
+  render() {
+    return (
+      <Row>
+        <div className="projects">
+          <h1 id="my-project" />
+          <Container fluid>
+            <Row className="project-gallery">
+              <Col md="2" />
+              <Col md="8">
+                <CardGroup>
+                  {this.state.stateBlog.map((blog) => {
+                    return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} ></Blog>
+                  })}
+                </CardGroup>
+              </Col>
+              <Col md="2" />
+            </Row>
+          </Container>
+        </div>
+      </Row>
+    );
+  }
+  
+}
+
+export default Blogs;
+
+
+  // let blogs: any[] = [];
 
   // React.useEffect(() => {
   //   window.addEventListener('scroll', function (event) {
@@ -35,43 +119,3 @@ const Projects = () => {
   //     }
   //   }, false);
   // }, []);
-
-  let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs";
-
-  if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-    apiAddress = "http://localhost:5000/api/blogs";
-  }
-
-  axios.get(apiAddress, {
-    withCredentials: true
-  })
-    .then(res => {
-      for (let i = 0; i < res.data.length; i++) {
-        blogs.push(res.data[i]);
-      }
-      // window.location.reload();
-    })
-
-  return (
-    <Row>
-      <div className="projects">
-        <h1 id="my-project" />
-        <Container fluid>
-          <Row className="project-gallery">
-            <Col md="2" />
-            <Col md="8">
-              <ol>
-                {blogs.map((blog) => {
-                  <li>{blog}</li>
-                })}
-              </ol>
-            </Col>
-            <Col md="2" />
-          </Row>
-        </Container>
-      </div>
-    </Row>
-  );
-}
-
-export default Projects;
