@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import axios from 'axios';
+import MyNavbar from '../navbar/navbar';
 
+import '../../style/blogs/showBlog.css';
 
 const ShowBlog = () => {
     const [title, setTitle] = useState('');
@@ -25,8 +27,18 @@ const ShowBlog = () => {
 
     return (
         <>
-            <h1>{title}</h1>
-            <p>{content}</p>   
+          <MyNavbar />
+          <Container fluid className='blog-canvas'>
+            <Row>
+              <Col md={3}/>
+              <Col md={6}>
+                <h1 className='blog-title'>{title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: content }} />
+              </Col>
+              <Col md={3}/>
+            </Row>
+            
+          </Container>
         </>
     )
 }
