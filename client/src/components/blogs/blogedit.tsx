@@ -10,7 +10,7 @@ import '../../style/blogs/blogedit.css';
 
 //import boostrap css
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const check = () => {
   let token = {
@@ -30,6 +30,7 @@ const check = () => {
     });
 }
 
+
 const BlogEdit = () => {
   const [content, setContent] = useState<string>('');
   const [title, setTitle] = useState<string>('');
@@ -39,53 +40,50 @@ const BlogEdit = () => {
 
   let id = window.location.pathname;
   id = id.slice(id.indexOf('edit/') + 5);
-  let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/edit/" + id;
 
-  if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-    apiAddress = "http://localhost:5000/api/blogs/edit/" + id;
-  }
-
-  let token = {
-    token: localStorage.getItem('token')
-  }
-
-  axios.post(apiAddress, token, {
-    withCredentials: true
-  })
-    .then(res => {
-      setTitle(res.data[0].title);
-      setContent(res.data[0].content);
-      setPic(res.data[0].pic);
+  React.useEffect(() => {
+    let loadApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/edit/" + id;
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      loadApiAddress = "http://localhost:5000/api/blogs/edit/" + id;
+    }
+    let token = {
+      token: localStorage.getItem('token')
+    }
+    axios.post(loadApiAddress, token, {
+      withCredentials: true
     })
-
-//     let saveApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/create";
-
-//     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-//         saveApiAddress = "http://localhost:5000/api/blogs/create";
-//     }
+      .then(res => {
+        setTitle(res.data[0].title);
+        setContent(res.data[0].content);
+        setPic(res.data[0].pic);
+      })
+  }, []);
 
   const handleSubmit = async (event: any) => {
+    let saveApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/save";
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      saveApiAddress = "http://localhost:5000/api/blogs/save";
+    }
     event.preventDefault();
     let blog = {
-        blogTitle: title,
-        blogContent: content,
-        token: localStorage.getItem('token')
+      blogTitle: title,
+      blogContent: content,
+      blogPic: pic,
+      token: localStorage.getItem('token'),
+      id: id
     }
-    console.log(blog)
-    await axios.post(apiAddress, blog, {
-        withCredentials: true
+    await axios.post(saveApiAddress, blog, {
+      withCredentials: true
     })
-        .then(res => {
+      .then(res => {
         alert('your blog is successfully saved');
-        })
-    
+      })
   }
 
-    const handleChange = (content: string) => {
-        setContent(content);
-    }
+  const handleChange = (content: string) => {
+    setContent(content);
+  }
 
-  
   return (
     <>
       <MyNavbar />
@@ -128,7 +126,7 @@ const BlogEdit = () => {
                 'removeformat | help | styleselect | link image | code| table',
               content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             }}
-            initialValue={content}
+            value={content}
           />
           <Button variant="primary" type="submit">
             Submit

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
-
+import axios from "axios";
 
 import '../../style/index/Project.css';
 import '../../style/blogs/blogs.css';
@@ -32,6 +32,26 @@ class Blog extends Component<Props, State> {
       stateID: props.propsID,
       stateAdmin: props.propsAdmin
     }
+    this.deleteBlog = this.deleteBlog.bind(this);
+  }
+
+  deleteBlog() {
+    let deleteApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/delete/" + this.state.stateID;
+
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      deleteApiAddress = "http://localhost:5000/api/blogs/delete/" + this.state.stateID;
+    }
+
+    let token = {
+      token: localStorage.getItem('token')
+    }
+
+    axios.post(deleteApiAddress, token, {
+      withCredentials: true
+    })
+      .then(res => {
+        window.location.reload();
+      })
   }
 
   render() {
@@ -39,7 +59,7 @@ class Blog extends Component<Props, State> {
     let deleteButton;
     if(this.state.stateAdmin == true) {
       editButton = <Button variant="warning" href={'/edit/' + this.state.stateID} style={{margin: "5px"}}>Edit</Button>;
-      deleteButton = <Button variant="secondary">Delete</Button>;
+      deleteButton = <Button variant="secondary" onClick={this.deleteBlog}>Delete</Button>;
     }
     return (
       <>

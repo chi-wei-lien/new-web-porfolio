@@ -37,6 +37,39 @@ class BlogController {
     res.send(blog);
     console.log(blog);
   }
+
+  async save(req: Request, res: Response) {
+    var query = { _id: req.body.id };
+    var newBlog = new Blog({
+      _id: req.body.id,
+      title: req.body.blogTitle,
+      content: req.body.blogContent,
+      date: new Date,
+      pic: req.body.pic
+    });
+    Blog.updateOne(query, newBlog, function(err: Error) {
+      if (!err) {
+        console.log("success update")
+        res.status(200).json({success: "blog saving succeed"});
+      } else {
+        console.log(err)
+        res.status(500).json({success: "blog saving failed"});
+      }
+    });
+  }
+
+  async delete(req: Request, res: Response) {
+    var query = { _id: req.params.id };
+    Blog.deleteOne(query, function(err: Error) {
+      if (!err) {
+        console.log("success delete")
+        res.status(200).json({success: "blog deletion succeed"});
+      } else {
+        console.log(err)
+        res.status(500).json({success: "blog deletion failed"});
+      }
+    });
+  }
 }
 
 export = new BlogController();
