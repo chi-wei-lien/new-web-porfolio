@@ -60,6 +60,10 @@ class Blogs extends Component<Props, State> {
       apiAddress = "http://localhost:5000/api/blogs";
     }
 
+    if (this.state.stateAdmin) {
+      apiAddress += "/admin"
+    }
+
     axios.get(apiAddress, {
       withCredentials: true
     })

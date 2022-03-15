@@ -16,7 +16,7 @@ const Admin = () => {
       <Container className="login">
         <Container className="login-button-container">
           <h1>Welcome</h1>
-          <Button className="blog-edit" href="/blog_dashboard">Edit blog</Button>
+          <Button className="blog-edit" href="/blog_dashboard">Blog Dashboard</Button>
           <GithubButton
             className="login-button"
             label="logout"

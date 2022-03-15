@@ -33,6 +33,7 @@ class Blog extends Component<Props, State> {
       stateAdmin: props.propsAdmin
     }
     this.deleteBlog = this.deleteBlog.bind(this);
+    this.publishBlog = this.publishBlog.bind(this);
   }
 
   deleteBlog() {
@@ -54,12 +55,33 @@ class Blog extends Component<Props, State> {
       })
   }
 
+  publishBlog() {
+    let publishApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/publish/" + this.state.stateID;
+
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      publishApiAddress = "http://localhost:5000/api/blogs/publish/" + this.state.stateID;
+    }
+
+    let token = {
+      token: localStorage.getItem('token')
+    }
+
+    axios.post(publishApiAddress, token, {
+      withCredentials: true
+    })
+      .then(res => {
+        // window.location.reload();
+      })
+  }
+
   render() {
     let editButton;
     let deleteButton;
+    let publishButton;
     if(this.state.stateAdmin == true) {
-      editButton = <Button variant="warning" href={'/edit/' + this.state.stateID} style={{margin: "5px"}}>Edit</Button>;
-      deleteButton = <Button variant="secondary" onClick={this.deleteBlog}>Delete</Button>;
+      editButton = <Button variant="warning" href={'/edit/' + this.state.stateID} style={{marginLeft: "5px"}}>Edit</Button>;
+      deleteButton = <Button variant="secondary" onClick={this.deleteBlog} style={{marginLeft: "5px"}}>Delete</Button>;
+      publishButton = <Button variant="info" onClick={this.publishBlog} style={{marginLeft: "5px"}}>Publish</Button>;
     }
     return (
       <>
@@ -77,6 +99,7 @@ class Blog extends Component<Props, State> {
               <Button variant="primary" href={"/blog/" + this.state.stateID}>Read more</Button>
               {editButton}
               {deleteButton}
+              {publishButton}
             </Card.Body>
           </Card>
         </Col>

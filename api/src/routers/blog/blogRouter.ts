@@ -19,6 +19,10 @@ class blogRouter {
    */
   private _configure() {
     this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.getAllPublished(req, res);
+    });
+
+    this._router.get('/admin', async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.getAll(req, res);
     });
 
@@ -40,6 +44,10 @@ class blogRouter {
 
     this._router.post('/delete/:id', async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.delete(req, res);
+    });
+
+    this._router.post('/publish/:id', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.publish(req, res);
     });
   }
 }
