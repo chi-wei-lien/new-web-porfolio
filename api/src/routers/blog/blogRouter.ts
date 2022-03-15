@@ -38,15 +38,15 @@ class blogRouter {
       return this._controller.save(req, res);
     });
 
-    this._router.post('/edit/:id', async (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/edit/:id', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.edit(req, res);
     });
 
-    this._router.post('/delete/:id', async (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/delete/:id', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.delete(req, res);
     });
 
-    this._router.post('/publish/:id', async (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/publish/:id', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.publish(req, res);
     });
   }
