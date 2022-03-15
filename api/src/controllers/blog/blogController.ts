@@ -30,6 +30,13 @@ class BlogController {
         res.status(500).json({success: "blog saving failed"})
     });
   }
+
+  async edit(req: Request, res: Response) {
+    var query = { _id: req.params.id };
+    const blog = await Blog.find(query);
+    res.send(blog);
+    console.log(blog);
+  }
 }
 
 export = new BlogController();

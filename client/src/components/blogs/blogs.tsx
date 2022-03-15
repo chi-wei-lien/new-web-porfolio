@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import { Row, Col, Container, CardGroup } from 'react-bootstrap';
+import { Row, Container, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import Blog from './blog';
@@ -80,11 +80,16 @@ class Blogs extends Component<Props, State> {
   }
 
   render() {
+    let createBlogButton;
+    if (this.state.stateAdmin) {
+      createBlogButton = <Button href={"/create_blog"} style={{marginBottom: "10px"}}>Create New Blog</Button>
+    }
     return (
       <Row>
         <div className="projects">
           <h1 id="my-project" />
           <Container fluid>
+            {createBlogButton}
             {this.state.stateBlog.map((blog) => {
               return <Blog
                         propsContent={blog.propsContent}

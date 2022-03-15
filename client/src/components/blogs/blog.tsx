@@ -38,7 +38,7 @@ class Blog extends Component<Props, State> {
     let editButton;
     let deleteButton;
     if(this.state.stateAdmin == true) {
-      editButton = <Button variant="warning" style={{margin: "5px"}}>Edit</Button>;
+      editButton = <Button variant="warning" href={'/edit/' + this.state.stateID} style={{margin: "5px"}}>Edit</Button>;
       deleteButton = <Button variant="secondary">Delete</Button>;
     }
     return (
@@ -54,7 +54,7 @@ class Blog extends Component<Props, State> {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Button variant="primary" href={'/blog/' + this.state.stateID}>Read more</Button>
+              <Button variant="primary" href={"/blog/" + this.state.stateID}>Read more</Button>
               {editButton}
               {deleteButton}
             </Card.Body>

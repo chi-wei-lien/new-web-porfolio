@@ -26,64 +26,42 @@ const check = () => {
     withCredentials: true
   })
     .catch(err => {
-    document.location.href="/error"
+      document.location.href="/error"
     });
 }
 
 const BlogEdit = () => {
   const [content, setContent] = useState<string>('');
   const [title, setTitle] = useState<string>('');
-  const [pic, setPic] = useState<string>('');
 
   check();
 
-  let id = window.location.pathname;
-  id = id.slice(id.indexOf('edit/') + 5);
-  let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/edit/" + id;
+  let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/create";
 
   if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-    apiAddress = "http://localhost:5000/api/blogs/edit/" + id;
+    apiAddress = "http://localhost:5000/api/blogs/create";
   }
-
-  let token = {
-    token: localStorage.getItem('token')
-  }
-
-  axios.post(apiAddress, token, {
-    withCredentials: true
-  })
-    .then(res => {
-      setTitle(res.data[0].title);
-      setContent(res.data[0].content);
-      setPic(res.data[0].pic);
-    })
-
-//     let saveApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/create";
-
-//     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-//         saveApiAddress = "http://localhost:5000/api/blogs/create";
-//     }
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
     let blog = {
-        blogTitle: title,
-        blogContent: content,
-        token: localStorage.getItem('token')
+      blogTitle: title,
+      blogContent: content,
+      token: localStorage.getItem('token')
     }
     console.log(blog)
     await axios.post(apiAddress, blog, {
-        withCredentials: true
+      withCredentials: true
     })
-        .then(res => {
+      .then(res => {
         alert('your blog is successfully saved');
-        })
+      })
     
   }
 
-    const handleChange = (content: string) => {
-        setContent(content);
-    }
+  const handleChange = (content: string) => {
+    setContent(content);
+  }
 
   
   return (
@@ -96,19 +74,9 @@ const BlogEdit = () => {
             <Form.Control 
               onChange={(e) => setTitle(e.target.value)}
               type="text"
-              placeholder="Enter Journal Name"
-              value={title} />
+              placeholder="Enter Journal Name" />
             <Form.Text className="text-muted">
               Name that will be displayed to the readers
-            </Form.Text>
-            <Form.Label>Blog Picture Source</Form.Label>
-            <Form.Control 
-              onChange={(e) => setPic(e.target.value)}
-              type="text"
-              placeholder="Picture Source"
-              value={pic} />
-            <Form.Text className="text-muted">
-              Picture that will be displayed to the readers
             </Form.Text>
           </Form.Group>
           <Editor
@@ -126,9 +94,8 @@ const BlogEdit = () => {
                 'bold italic backcolor | alignleft aligncenter ' +
                 'alignright alignjustify | bullist numlist outdent indent | ' +
                 'removeformat | help | styleselect | link image | code| table',
-              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
             }}
-            initialValue={content}
           />
           <Button variant="primary" type="submit">
             Submit

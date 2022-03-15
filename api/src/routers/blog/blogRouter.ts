@@ -29,6 +29,10 @@ class blogRouter {
     this._router.post('/create', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.create(req, res);
     });
+
+    this._router.post('/edit/:id', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.edit(req, res);
+    });
   }
 }
 
