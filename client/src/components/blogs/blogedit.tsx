@@ -47,13 +47,14 @@ const BlogEdit = () => {
     let blog = {
       blogTitle: title,
       blogContent: content,
+      token: localStorage.getItem('token')
     }
     console.log(blog)
     await axios.post(apiAddress, blog, {
       withCredentials: true
     })
       .then(res => {
-        
+        alert('your blog is successfully saved');
       })
     
   }

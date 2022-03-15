@@ -7,6 +7,7 @@ import LoginPage from './components/login/login-page';
 import Blogedit from './components/blogs/blogedit';
 import Blogs from './components/blogs/blogsPage';
 import ShowBlog from './components/blogs/showBlog';
+import BlogDashboard from './components/blogs/blogDashboard';
 import reportWebVitals from './reportWebVitals';
 import Error from './components/error/error'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogedit" element={<Blogedit />} />
         <Route path="/blog/:id" element={<ShowBlog />} />
+        <Route path="/blog_dashboard" element={<BlogDashboard />} />
         <Route path="/error" element={<Error />} />
       </Routes>
     </Router>

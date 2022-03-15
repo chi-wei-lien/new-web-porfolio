@@ -31,18 +31,20 @@ interface DataPlaceHolder {
 }
 
 interface Props {
-  propBlog: Array<DataPlaceHolder>
+  propsAdmin: boolean
 }
 
 interface State {
-  stateBlog: Array<DataPlaceHolder>,
+  stateAdmin: boolean,
+  stateBlog: Array<DataPlaceHolder>
 }
 
 class Blogs extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      stateBlog: [],
+      stateAdmin: props.propsAdmin,
+      stateBlog: []
     }
   }
 
@@ -83,11 +85,15 @@ class Blogs extends Component<Props, State> {
         <div className="projects">
           <h1 id="my-project" />
           <Container fluid>
-            {/* <Row className="project-gallery"> */}
             {this.state.stateBlog.map((blog) => {
-              return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} propsID={blog.propsID} ></Blog>
+              return <Blog
+                        propsContent={blog.propsContent}
+                        propsName={blog.propsName}
+                        propsPicSrc={blog.propsPicSrc}
+                        propsID={blog.propsID}
+                        propsAdmin={this.state.stateAdmin}>
+                      </Blog>
             })}
-            {/* </Row> */}
           </Container>
         </div>
       </Row>

@@ -31,7 +31,7 @@ const BlogPage = () => {
         <ToolBar />
 
         {/* propBlog will be empty when called */}
-        <Blogs propsAdmin={ false }/>
+        <Blogs propsAdmin={ true } />
         <Footer />
       </Container>
     </>

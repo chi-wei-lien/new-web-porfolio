@@ -23,11 +23,11 @@ class BlogController {
       date: new Date,
       pic: ''
     });
-    newBlog .save((err, doc) => {
+    newBlog.save((err, doc) => {
       if (!err)
-        console.log("success")
+        res.status(200).json({success: "blog saving succeed"})
       else
-        console.log('Error during record insertion : ' + err);
+        res.status(500).json({success: "blog saving failed"})
     });
   }
 }
