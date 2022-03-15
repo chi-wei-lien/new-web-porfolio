@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 
 import '../../style/index/Project.css';
+import '../../style/blogs/blogs.css';
+
 
 interface Props {
   propsContent: string,
@@ -28,18 +30,24 @@ class Blog extends Component<Props, State> {
   render() {
     return (
       <>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>{this.state.stateName}</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-
+      <Row className="project-gallery">
+        <Col md={4} />
+        <Col md={4} >
+          <Card className={"blog-card"}>
+            <Card.Img variant="top" src={this.state.statePicSrc} />
+            <Card.Body>
+              <Card.Title>{this.state.stateName}</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up the bulk of
+                the card's content.
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col md={4} />
+      </Row>
+        
       </>
     );
   }

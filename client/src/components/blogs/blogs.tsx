@@ -65,7 +65,7 @@ class Blogs extends Component<Props, State> {
           const newData = {
             propsContent: res.data[i].content,
             propsName: res.data[i].title,
-            propsPicSrc: ""
+            propsPicSrc: res.data[i].pic
           }
 
           this.setState({
@@ -86,17 +86,11 @@ class Blogs extends Component<Props, State> {
         <div className="projects">
           <h1 id="my-project" />
           <Container fluid>
-            <Row className="project-gallery">
-              <Col md="2" />
-              <Col md="8">
-                <CardGroup>
-                  {this.state.stateBlog.map((blog) => {
-                    return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} ></Blog>
-                  })}
-                </CardGroup>
-              </Col>
-              <Col md="2" />
-            </Row>
+            {/* <Row className="project-gallery"> */}
+            {this.state.stateBlog.map((blog) => {
+              return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} ></Blog>
+            })}
+            {/* </Row> */}
           </Container>
         </div>
       </Row>
