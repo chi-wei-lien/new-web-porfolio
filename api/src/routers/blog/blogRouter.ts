@@ -49,6 +49,10 @@ class blogRouter {
     this._router.post('/publish/:id', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.publish(req, res);
     });
+
+    this._router.post('/unpublish/:id', getAuth, async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.unPublish(req, res);
+    });
   }
 }
 

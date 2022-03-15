@@ -101,6 +101,28 @@ class BlogController {
       }
     });
   }
+
+  async unPublish(req: Request, res: Response) {
+    var query = { _id: req.params.id };
+    const blog = await Blog.find(query);
+    var newBlog = new Blog({
+      _id: req.params.id,
+      title: blog[0].title,
+      content: blog[0].content,
+      date: new Date,
+      pic: blog[0].pic,
+      published: false
+    });
+    Blog.updateOne(query, newBlog, function(err: Error) {
+      if (!err) {
+        console.log("success update")
+        res.status(200).json({success: "blog saving succeed"});
+      } else {
+        console.log(err)
+        res.status(500).json({success: "blog saving failed"});
+      }
+    });
+  }
 }
 
 export = new BlogController();
