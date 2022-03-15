@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
+import Footer from '../footer/newfooter';
 import axios from 'axios';
 import MyNavbar from '../navbar/navbar';
 
@@ -39,6 +40,7 @@ const ShowBlog = () => {
             </Row>
             
           </Container>
+          <Footer />
         </>
     )
 }

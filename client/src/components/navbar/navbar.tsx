@@ -13,13 +13,13 @@ const MyNavbar = () => {
     return (
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="my-navbar" fixed="top">
         <Container>
-          <Navbar.Brand as={Link} to="/">Willy, Chi-Wei Lien</Navbar.Brand>
+          <Navbar.Brand href="/">Willy, Chi-Wei Lien</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             </Nav>
             <Nav>
-              <Nav.Link as={Link} to="/who_am_i">who_am_i()</Nav.Link>
+              <Nav.Link href="/who_am_i">who_am_i()</Nav.Link>
               <Nav.Link href="/blogs">show_blogs()</Nav.Link>
               <Nav.Link href="#show_art_gallery">show_art_gallery()</Nav.Link>
               <Nav.Link as={Link} to="/login">hi({localStorage.getItem('user')})</Nav.Link>
