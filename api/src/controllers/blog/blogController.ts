@@ -15,6 +15,21 @@ class BlogController {
     res.send(blog);
     console.log(blog);
   }
+
+  async create(req: Request, res: Response) {
+    var newBlog = new Blog({
+      title: req.body.blogTitle,
+      content: req.body.blogContent,
+      date: new Date,
+      pic: ''
+    });
+    newBlog .save((err, doc) => {
+      if (!err)
+        console.log("success")
+      else
+        console.log('Error during record insertion : ' + err);
+    });
+  }
 }
 
 export = new BlogController();
