@@ -99,6 +99,7 @@ const BlogEdit = () => {
             <Form.Text className="text-muted">
               Name that will be displayed to the readers
             </Form.Text>
+            <br />
             <Form.Label>Blog Picture Source</Form.Label>
             <Form.Control 
               onChange={(e) => setPic(e.target.value)}

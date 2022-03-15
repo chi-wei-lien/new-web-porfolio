@@ -33,6 +33,8 @@ const check = () => {
 const BlogEdit = () => {
   const [content, setContent] = useState<string>('');
   const [title, setTitle] = useState<string>('');
+  const [pic, setPic] = useState<string>('');
+
 
   check();
 
@@ -47,6 +49,7 @@ const BlogEdit = () => {
     let blog = {
       blogTitle: title,
       blogContent: content,
+      blogPic: pic,
       token: localStorage.getItem('token')
     }
     console.log(blog)
@@ -74,9 +77,20 @@ const BlogEdit = () => {
             <Form.Control 
               onChange={(e) => setTitle(e.target.value)}
               type="text"
-              placeholder="Enter Journal Name" />
+              placeholder="Enter Journal Name"
+            />
             <Form.Text className="text-muted">
               Name that will be displayed to the readers
+            </Form.Text>
+            <br />
+            <Form.Label>Blog Picture Source</Form.Label>
+            <Form.Control 
+              onChange={(e) => setPic(e.target.value)}
+              type="text"
+              placeholder="Picture Source"
+            />
+            <Form.Text className="text-muted">
+              Picture that will be displayed to the readers
             </Form.Text>
           </Form.Group>
           <Editor

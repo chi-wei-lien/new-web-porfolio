@@ -28,7 +28,7 @@ class BlogController {
       title: req.body.blogTitle,
       content: req.body.blogContent,
       date: new Date,
-      pic: '',
+      pic: req.body.blogPic,
       published: false
     });
     newBlog.save((err, doc) => {
@@ -53,7 +53,7 @@ class BlogController {
       title: req.body.blogTitle,
       content: req.body.blogContent,
       date: new Date,
-      pic: req.body.pic,
+      pic: req.body.blogPic,
       published: false
     });
     Blog.updateOne(query, newBlog, function(err: Error) {
