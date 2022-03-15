@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 
+
 import '../../style/index/Project.css';
 import '../../style/blogs/blogs.css';
 
@@ -8,13 +9,15 @@ import '../../style/blogs/blogs.css';
 interface Props {
   propsContent: string,
   propsName: string,
-  propsPicSrc: string
+  propsPicSrc: string,
+  propsID: string
 }
 
 interface State {
   stateContent: string,
   stateName: string,
-  statePicSrc: string
+  statePicSrc: string,
+  stateID: string
 }
 
 class Blog extends Component<Props, State> {
@@ -23,7 +26,8 @@ class Blog extends Component<Props, State> {
     this.state = {
       stateName: props.propsName,
       stateContent: props.propsContent,
-      statePicSrc: props.propsPicSrc
+      statePicSrc: props.propsPicSrc,
+      stateID: props.propsID
     }
   }
 
@@ -41,7 +45,7 @@ class Blog extends Component<Props, State> {
                 Some quick example text to build on the card title and make up the bulk of
                 the card's content.
               </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary" href={'/blog/' + this.state.stateID}>Go somewhere</Button>
             </Card.Body>
           </Card>
         </Col>

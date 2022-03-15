@@ -26,7 +26,8 @@ function typeWriter() {
 interface DataPlaceHolder {
   propsContent: string,
   propsName: string,
-  propsPicSrc: string
+  propsPicSrc: string,
+  propsID: string
 }
 
 interface Props {
@@ -65,7 +66,8 @@ class Blogs extends Component<Props, State> {
           const newData = {
             propsContent: res.data[i].content,
             propsName: res.data[i].title,
-            propsPicSrc: res.data[i].pic
+            propsPicSrc: res.data[i].pic,
+            propsID: res.data[i]._id
           }
 
           this.setState({
@@ -75,11 +77,6 @@ class Blogs extends Component<Props, State> {
       })
   }
 
-  test() {
-    console.log(this.state.stateBlog[0].propsName);
-  }
-
-
   render() {
     return (
       <Row>
@@ -88,7 +85,7 @@ class Blogs extends Component<Props, State> {
           <Container fluid>
             {/* <Row className="project-gallery"> */}
             {this.state.stateBlog.map((blog) => {
-              return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} ></Blog>
+              return <Blog propsContent={blog.propsContent} propsName={blog.propsName} propsPicSrc={blog.propsPicSrc} propsID={blog.propsID} ></Blog>
             })}
             {/* </Row> */}
           </Container>

@@ -6,6 +6,7 @@ import WhoAml from './components/who-am-i/who';
 import LoginPage from './components/login/login-page';
 import Blogedit from './components/blogs/blogedit';
 import Blogs from './components/blogs/blogsPage';
+import ShowBlog from './components/blogs/showBlog';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -19,6 +20,7 @@ ReactDOM.render(
         <Route path="/login" element={<LoginPage />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogedit" element={<Blogedit />} />
+        <Route path="/blog/:id" element={<ShowBlog />} />
       </Routes>
     </Router>
   </React.StrictMode>,

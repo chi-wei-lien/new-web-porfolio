@@ -20,6 +20,9 @@ class blogRouter {
     this._router.get('/', async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.getAll(req, res);
     });
+    this._router.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+      return this._controller.findOne(req, res);
+    });
   }
 }
 
