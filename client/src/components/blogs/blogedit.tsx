@@ -62,16 +62,6 @@ const BlogEdit = () => {
     setContent(content);
   }
 
-  /**
-   * If the user is not one of the admin, it will kick him
-   * to the no access page
-   */
-  // if (localStorage.getItem('admin')?.localeCompare("true") != 0) {
-  //   return (
-  //     <Error />
-  //   );
-  // }
-
   
   return (
     <>

@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from 'express';
 import BlogController from '../../controllers/blog/blogController';
+import getAuth from '../../middleware/auth';
 
 class blogRouter {
   private _router = Router();
@@ -25,7 +26,7 @@ class blogRouter {
       return this._controller.findOne(req, res);
     });
 
-    this._router.post('/create', async (req: Request, res: Response, next: NextFunction) => {
+    this._router.post('/create', getAuth, async (req: Request, res: Response, next: NextFunction) => {
       return this._controller.create(req, res);
     });
   }
