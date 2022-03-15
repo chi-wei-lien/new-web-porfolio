@@ -12,7 +12,7 @@ class LoginController {
           const newUser = new User({ email: req.body.user.email })
           newUser.save()
             .then(user => {
-              res.status(200).json({ token: generateToken(user), admin: false })
+              res.status(200).json({ admin: false })
             })
             .catch(error => {
               res.status(500).json(error)
@@ -24,7 +24,7 @@ class LoginController {
                 res.status(200).json({ token: generateToken(user), admin: true })
                 return;
               } else {
-                res.status(200).json({ token: generateToken(user), admin: false })
+                res.status(200).json({ admin: false })
               }
             })
         }
@@ -39,7 +39,7 @@ class LoginController {
     } else {
       jwt.verify(token, process.env.TOCKEN_SECRET || "", (err: any, value: any) => {
         if (err) {
-          res.status(500).json({ error: 'failed to authenticate token' })
+          res.status(403).json({ error: 'failed to authenticate token' })
           return;
         } else {
           res.status(200).json({ success: "welcome" });

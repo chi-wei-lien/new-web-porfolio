@@ -8,6 +8,7 @@ import Blogedit from './components/blogs/blogedit';
 import Blogs from './components/blogs/blogsPage';
 import ShowBlog from './components/blogs/showBlog';
 import reportWebVitals from './reportWebVitals';
+import Error from './components/error/error'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
@@ -21,6 +22,7 @@ ReactDOM.render(
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blogedit" element={<Blogedit />} />
         <Route path="/blog/:id" element={<ShowBlog />} />
+        <Route path="/error" element={<Error />} />
       </Routes>
     </Router>
   </React.StrictMode>,

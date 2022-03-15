@@ -12,9 +12,29 @@ import '../../style/blogs/blogedit.css';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 
+const check = () => {
+  let token = {
+    token: localStorage.getItem('token')
+  }
+  let checkApiAddress = "https://test-web-portfolio.herokuapp.com/api/login/check";
+
+  if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+    checkApiAddress = "http://localhost:5000/api/login/check";
+  }
+
+  axios.post(checkApiAddress, token, {
+    withCredentials: true
+  })
+    .catch(err => {
+      document.location.href="/error"
+    });
+}
+
 const BlogEdit = () => {
   const [content, setContent] = useState<string>('');
   const [title, setTitle] = useState<string>('');
+
+  check();
 
   let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/create";
 
@@ -46,12 +66,13 @@ const BlogEdit = () => {
    * If the user is not one of the admin, it will kick him
    * to the no access page
    */
-  if (localStorage.getItem('admin')?.localeCompare("true") != 0) {
-    return (
-      <Error />
-    );
-  }
+  // if (localStorage.getItem('admin')?.localeCompare("true") != 0) {
+  //   return (
+  //     <Error />
+  //   );
+  // }
 
+  
   return (
     <>
       <MyNavbar />
