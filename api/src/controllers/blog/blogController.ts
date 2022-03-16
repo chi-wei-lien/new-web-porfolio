@@ -29,6 +29,7 @@ class BlogController {
       content: req.body.blogContent,
       date: new Date,
       pic: req.body.blogPic,
+      preview: req.body.blogPreview,
       published: false
     });
     newBlog.save((err, doc) => {

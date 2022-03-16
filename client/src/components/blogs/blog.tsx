@@ -44,22 +44,25 @@ class Blog extends Component<Props, State> {
   }
 
   deleteBlog() {
-    let deleteApiAddress = "/api/blogs/delete/" + this.state.stateID;
+    let deleteConfirm: boolean = window.confirm("Are you sure you want to delete this blog? You cannot redo this!");
 
-    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
-      deleteApiAddress = "http://localhost:5000/api/blogs/delete/" + this.state.stateID;
-    }
+    if (deleteConfirm) {
+      let deleteApiAddress = "/api/blogs/delete/" + this.state.stateID;
+      if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+        deleteApiAddress = "http://localhost:5000/api/blogs/delete/" + this.state.stateID;
+      }
+  
+      let token = {
+        token: localStorage.getItem('token')
+      }
 
-    let token = {
-      token: localStorage.getItem('token')
-    }
-
-    axios.post(deleteApiAddress, token, {
-      withCredentials: true
-    })
-      .then(res => {
-        window.location.reload();
+      axios.post(deleteApiAddress, token, {
+        withCredentials: true
       })
+        .then(res => {
+          window.location.reload();
+        })
+    }
   }
 
   publishBlog() {

@@ -90,7 +90,7 @@ const BlogEdit = () => {
               onChange={(e) => setPreview(e.target.value)}
               type="text"
               placeholder="Enter Preview Text"
-              value={preview} />
+            />
             <Form.Text className="text-muted">
               Name that will be displayed to the readers
             </Form.Text>
