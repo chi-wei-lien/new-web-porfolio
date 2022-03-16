@@ -47,7 +47,7 @@ class Blog extends Component<Props, State> {
     let deleteConfirm: boolean = window.confirm("Are you sure you want to delete this blog? You cannot redo this!");
 
     if (deleteConfirm) {
-      let deleteApiAddress = "/api/blogs/delete/" + this.state.stateID;
+      let deleteApiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/delete/" + this.state.stateID;
       if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
         deleteApiAddress = "http://localhost:5000/api/blogs/delete/" + this.state.stateID;
       }

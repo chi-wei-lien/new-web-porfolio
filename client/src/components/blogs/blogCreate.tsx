@@ -114,13 +114,13 @@ const BlogEdit = () => {
               plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table paste code help wordcount code table'
+                'insertdatetime media table paste code help wordcount code table blockquote'
               ],
               toolbar: 'undo redo | ' +
                 'bold italic backcolor | alignleft aligncenter ' +
                 'alignright alignjustify | bullist numlist outdent indent | ' +
-                'removeformat | help | styleselect | link image | code| table',
-              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                'removeformat | help | styleselect | link image | code| table | blockquote',
+              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
             }}
           />
           <Button variant="primary" type="submit">
