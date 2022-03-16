@@ -35,6 +35,7 @@ const BlogEdit = () => {
   const [content, setContent] = useState<string>('');
   const [title, setTitle] = useState<string>('');
   const [pic, setPic] = useState<string>('');
+  const [preview, setPreview] = useState<string>('');
 
   check();
 
@@ -56,6 +57,7 @@ const BlogEdit = () => {
         setTitle(res.data[0].title);
         setContent(res.data[0].content);
         setPic(res.data[0].pic);
+        setPreview(res.data[0].preview);
       })
   }, []);
 
@@ -70,7 +72,8 @@ const BlogEdit = () => {
       blogContent: content,
       blogPic: pic,
       token: localStorage.getItem('token'),
-      id: id
+      id: id,
+      blogPreview: preview
     }
     await axios.post(saveApiAddress, blog, {
       withCredentials: true
@@ -96,6 +99,16 @@ const BlogEdit = () => {
               type="text"
               placeholder="Enter Journal Name"
               value={title} />
+            <Form.Text className="text-muted">
+              Name that will be displayed to the readers
+            </Form.Text>
+            <br />
+            <Form.Label>Preview Text</Form.Label>
+            <Form.Control 
+              onChange={(e) => setPreview(e.target.value)}
+              type="text"
+              placeholder="Enter Preview Text"
+              value={preview} />
             <Form.Text className="text-muted">
               Name that will be displayed to the readers
             </Form.Text>

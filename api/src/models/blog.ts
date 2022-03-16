@@ -6,6 +6,7 @@ interface Blog {
   pic: string;
   date: Date;
   published: boolean;
+  preview: string;
 }
 
 const schema = new Schema<Blog>({
@@ -13,7 +14,8 @@ const schema = new Schema<Blog>({
   content: { type: String, required: true },
   date: { type: Date, required: true },
   pic: {type: String},
-  published: { type: Boolean, required: true, default: false}
+  published: { type: Boolean, required: true, default: false},
+  preview: {type: String}
 });
 
 export default model<Blog>('Blog', schema);

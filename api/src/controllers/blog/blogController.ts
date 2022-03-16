@@ -54,6 +54,7 @@ class BlogController {
       content: req.body.blogContent,
       date: new Date,
       pic: req.body.blogPic,
+      preview: req.body.blogPreview,
       published: false
     });
     Blog.updateOne(query, newBlog, function(err: Error) {

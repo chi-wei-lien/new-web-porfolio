@@ -12,7 +12,8 @@ interface Props {
   propsPicSrc: string,
   propsID: string,
   propsAdmin: boolean,
-  propsPublished: boolean
+  propsPublished: boolean,
+  propsPreview: string
 }
 
 interface State {
@@ -22,6 +23,7 @@ interface State {
   stateID: string,
   stateAdmin: boolean,
   statePublished: boolean
+  statePreview: string
 }
 
 class Blog extends Component<Props, State> {
@@ -33,7 +35,8 @@ class Blog extends Component<Props, State> {
       statePicSrc: props.propsPicSrc,
       stateID: props.propsID,
       stateAdmin: props.propsAdmin,
-      statePublished: props.propsPublished
+      statePublished: props.propsPublished,
+      statePreview: props.propsPreview
     }
     this.deleteBlog = this.deleteBlog.bind(this);
     this.publishBlog = this.publishBlog.bind(this);
@@ -119,10 +122,7 @@ class Blog extends Component<Props, State> {
             <Card.Img variant="top" src={this.state.statePicSrc} />
             <Card.Body>
               <Card.Title>{this.state.stateName}</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up the bulk of
-                the card's content.
-              </Card.Text>
+              <Card.Text>{this.state.statePreview}</Card.Text>
               <Button variant="primary" href={"/blog/" + this.state.stateID}>Read more</Button>
               {editButton}
               {deleteButton}

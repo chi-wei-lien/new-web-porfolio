@@ -28,7 +28,8 @@ interface DataPlaceHolder {
   propsName: string,
   propsPicSrc: string,
   propsID: string,
-  propsPublished: boolean
+  propsPublished: boolean,
+  propsPreview: string
 }
 
 interface Props {
@@ -82,7 +83,8 @@ class Blogs extends Component<Props, State> {
             propsName: res.data[i].title,
             propsPicSrc: res.data[i].pic,
             propsID: res.data[i]._id,
-            propsPublished: res.data[i].published
+            propsPublished: res.data[i].published,
+            propsPreview: res.data[i].preview
           }
 
           this.setState({
@@ -111,6 +113,7 @@ class Blogs extends Component<Props, State> {
                         propsID={blog.propsID}
                         propsAdmin={this.state.stateAdmin}
                         propsPublished={blog.propsPublished}
+                        propsPreview={blog.propsPreview}
                       >
                       </Blog>
             })}
