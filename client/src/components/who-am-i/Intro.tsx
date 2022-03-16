@@ -7,8 +7,8 @@ class Intro extends Component {
   render() {
     return (
       <Col className="codeBG">
-        <Container className="intro">
-          <h1>Yea... I'm Willy</h1>
+        <Container className="login-button-container">
+          <h1>Yea... I'm Wilson</h1>
           <p>&nbsp;&nbsp;&nbsp;&nbsp;
             I'm Wilson, a college freshman interested in making videos on Youtube and cybersecurity. 
             I'm trying to upload a video every week that is related to cybersecurity to help people 

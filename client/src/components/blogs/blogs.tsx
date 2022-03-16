@@ -49,17 +49,6 @@ class Blogs extends Component<Props, State> {
     }
   }
 
-
-  // React.useEffect(() => {
-  //   window.addEventListener('scroll', function (event) {
-  //     var currentScrollingLocation = document.documentElement.scrollTop;
-  //     if (currentScrollingLocation > 200 && !launchedType) {
-  //       typeWriter();
-  //       launchedType = true;
-  //     }
-  //   }, false);
-  // }, []);
-
   // Seems like there is a better way of doing this
   componentWillMount() {
     this.getBlogs();
