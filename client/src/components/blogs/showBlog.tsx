@@ -9,6 +9,7 @@ import '../../style/blogs/showBlog.css';
 const ShowBlog = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [pic, setPic] = useState('');
 
     let id = window.location.pathname;
     id = id.slice(id.indexOf('blog/') + 5);
@@ -24,6 +25,7 @@ const ShowBlog = () => {
       .then(res => {
         setTitle(res.data[0].title);
         setContent(res.data[0].content);
+        setPic(res.data[0].pic);
       })
 
     return (
@@ -33,6 +35,7 @@ const ShowBlog = () => {
             <Row>
               <Col md={3}/>
               <Col md={6}>
+                <img src={pic} className="blog-img"></img>
                 <h1 className='blog-title'>{title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: content }} />
               </Col>

@@ -14,7 +14,7 @@ var titleElement;
 
 function typeWriter() {
   if (i < txt.length) {
-    titleElement = document.getElementById("my-project");
+    titleElement = document.getElementById("my-blogs");
     if (titleElement !== null) {
       titleElement.innerHTML += txt.charAt(i);
       i++;
@@ -49,9 +49,27 @@ class Blogs extends Component<Props, State> {
     }
   }
 
+
+  // React.useEffect(() => {
+  //   window.addEventListener('scroll', function (event) {
+  //     var currentScrollingLocation = document.documentElement.scrollTop;
+  //     if (currentScrollingLocation > 200 && !launchedType) {
+  //       typeWriter();
+  //       launchedType = true;
+  //     }
+  //   }, false);
+  // }, []);
+
   // Seems like there is a better way of doing this
   componentWillMount() {
     this.getBlogs();
+    document.addEventListener('scroll', () => {
+      var currentScrollingLocation = document.documentElement.scrollTop;
+      if (currentScrollingLocation > 200 && !launchedType) {
+        typeWriter();
+        launchedType = true;
+      }
+    });
   }
 
   getBlogs = () => {
@@ -93,7 +111,7 @@ class Blogs extends Component<Props, State> {
     return (
       <Row>
         <div className="projects">
-          <h1 id="my-project" />
+          <h1 id="my-blogs" />
           <Container fluid>
             {createBlogButton}
             {this.state.stateBlog.map((blog) => {
@@ -120,12 +138,4 @@ export default Blogs;
 
   // let blogs: any[] = [];
 
-  // React.useEffect(() => {
-  //   window.addEventListener('scroll', function (event) {
-  //     var currentScrollingLocation = document.documentElement.scrollTop;
-  //     if (currentScrollingLocation > 200 && !launchedType) {
-  //       typeWriter();
-  //       launchedType = true;
-  //     }
-  //   }, false);
-  // }, []);
+  
