@@ -16,7 +16,7 @@ const allowedOrigins = ['https://loophole.engineer', 'http://localhost:3000'];
 
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
-  credentials: true
+  credentials: true,
 };
 
 const mongoStore = MongoDBStore(expressSession);

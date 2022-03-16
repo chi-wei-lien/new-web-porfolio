@@ -41,7 +41,7 @@ class Blog extends Component<Props, State> {
   }
 
   deleteBlog() {
-    let deleteApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/delete/" + this.state.stateID;
+    let deleteApiAddress = "/api/blogs/delete/" + this.state.stateID;
 
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       deleteApiAddress = "http://localhost:5000/api/blogs/delete/" + this.state.stateID;
@@ -60,7 +60,7 @@ class Blog extends Component<Props, State> {
   }
 
   publishBlog() {
-    let publishApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/publish/" + this.state.stateID;
+    let publishApiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/publish/" + this.state.stateID;
 
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       publishApiAddress = "http://localhost:5000/api/blogs/publish/" + this.state.stateID;
@@ -79,7 +79,7 @@ class Blog extends Component<Props, State> {
   }
 
   unPublishBlog() {
-    let publishApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/unpublish/" + this.state.stateID;
+    let publishApiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/unpublish/" + this.state.stateID;
 
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       publishApiAddress = "http://localhost:5000/api/blogs/unpublish/" + this.state.stateID;

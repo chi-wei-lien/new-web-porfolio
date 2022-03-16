@@ -17,7 +17,7 @@ const Login = () => {
         email: res.email
       }
 
-      let apiAddress = "https://test-web-portfolio.herokuapp.com/api/login";
+      let apiAddress = "https://chi-wei-lien.herokuapp.com/api/login";
 
       if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
         apiAddress = "http://localhost:5000/api/login";

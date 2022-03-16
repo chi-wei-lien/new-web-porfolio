@@ -12,7 +12,7 @@ const ShowBlog = () => {
 
     let id = window.location.pathname;
     id = id.slice(id.indexOf('blog/') + 5);
-    let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/" + id;
+    let apiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/" + id;
 
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       apiAddress = "http://localhost:5000/api/blogs/" + id;

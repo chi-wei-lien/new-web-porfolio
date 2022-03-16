@@ -16,7 +16,7 @@ const check = () => {
   let token = {
     token: localStorage.getItem('token')
   }
-  let checkApiAddress = "https://test-web-portfolio.herokuapp.com/api/login/check";
+  let checkApiAddress = "https://chi-wei-lien.herokuapp.com/api/login/check";
 
   if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
     checkApiAddress = "http://localhost:5000/api/login/check";
@@ -38,7 +38,7 @@ const BlogEdit = () => {
 
   check();
 
-  let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/create";
+  let apiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/create";
 
   if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
     apiAddress = "http://localhost:5000/api/blogs/create";

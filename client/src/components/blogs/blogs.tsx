@@ -55,7 +55,7 @@ class Blogs extends Component<Props, State> {
   }
 
   getBlogs = () => {
-    let apiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs";
+    let apiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs";
 
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       apiAddress = "http://localhost:5000/api/blogs";

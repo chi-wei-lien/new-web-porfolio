@@ -16,7 +16,7 @@ const check = () => {
   let token = {
     token: localStorage.getItem('token')
   }
-  let checkApiAddress = "https://test-web-portfolio.herokuapp.com/api/login/check";
+  let checkApiAddress = "https://chi-wei-lien.herokuapp.com/api/login/check";
 
   if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
     checkApiAddress = "http://localhost:5000/api/login/check";
@@ -42,7 +42,7 @@ const BlogEdit = () => {
   id = id.slice(id.indexOf('edit/') + 5);
 
   React.useEffect(() => {
-    let loadApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/edit/" + id;
+    let loadApiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/edit/" + id;
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       loadApiAddress = "http://localhost:5000/api/blogs/edit/" + id;
     }
@@ -60,7 +60,7 @@ const BlogEdit = () => {
   }, []);
 
   const handleSubmit = async (event: any) => {
-    let saveApiAddress = "https://test-web-portfolio.herokuapp.com/api/blogs/save";
+    let saveApiAddress = "https://chi-wei-lien.herokuapp.com/api/blogs/save";
     if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
       saveApiAddress = "http://localhost:5000/api/blogs/save";
     }
