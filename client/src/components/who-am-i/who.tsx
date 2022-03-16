@@ -1,6 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
-
 //import custom react element
 import MyNavbar from '../navbar/navbar';
 import Intro from './Intro';
