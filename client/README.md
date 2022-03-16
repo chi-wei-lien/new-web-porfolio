@@ -1,8 +1,30 @@
-# Getting Started with Create React App
+## Table of Contents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- My Portfolio Website! (Introduction)
+- Techonology Involved
+- Problems I encountered
+- Requirements
+- Installation
+- Configuration
+- Troubleshooting
+- FAQ
+- Maintainers
 
-## Available Scripts
+# My Portfolio Website!
+
+This is the forth time I rebuilt my portfolio website. This time, I created a backend that helps me render all my journals to the frontend. I also followed the rest API structure while hosting my frontend on Netlify and backend on Heroku. For the details on how I built it please refer to the "Techonology Involved" section.
+
+## Techonology Involved
+
+This project is created with the MERN([MongoDB](https://www.mongodb.com/), [Express JS](https://expressjs.com/), [React JS](https://reactjs.org/), [Node JS](https://nodejs.org/)) structure + [Typescrpit](https://www.typescriptlang.org/). As mentioned, the frontend is hosted with Netlify and the backend is hosted with Heroku. [Axios](https://www.npmjs.com/package/axios) is used to connect the backend and frontend.
+
+Editor: [TinyMCE](https://www.tiny.cloud/)
+Login: [Firebase Authentication](https://firebase.google.com/products/auth?gclsrc=aw.ds&gclid=CjwKCAjwlcaRBhBYEiwAK341jRbXCX1mnGOLGgumbV2CbF61bWZOAmlvKRMumybzNO4oGXyrIzgQURoCfI8QAvD_BwE)
+
+## Problems I Encounted
+
+login
+network error cross siting disallowed
 
 In the project directory, you can run:
 
@@ -14,11 +36,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
@@ -28,19 +45,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
