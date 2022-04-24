@@ -5,7 +5,6 @@ import axios from "axios";
 import '../../style/index/Project.css';
 import '../../style/blogs/blogs.css';
 
-
 interface Props {
   propsContent: string,
   propsName: string,
@@ -102,7 +101,7 @@ class Blog extends Component<Props, State> {
         window.location.reload();
       })
   }
-
+  
   render() {
     let editButton;
     let deleteButton;

@@ -5,6 +5,11 @@ import axios from 'axios';
 import MyNavbar from '../navbar/navbar';
 
 import '../../style/blogs/showBlog.css';
+//import hljs from 'highlight.js/lib/core';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
+//import languagec from 'highlight.js/lib/languages/cpp';
+
 
 const ShowBlog = () => {
     const [title, setTitle] = useState('');
@@ -27,7 +32,22 @@ const ShowBlog = () => {
         setContent(res.data[0].content);
         setPic(res.data[0].pic);
       })
+    //hljs.registerLanguage('language-c', languagec);
+    hljs.highlightAll();
+    /*
+    updateCodeSyntaxHighlighting = () => {
+      hljs.registerLanguage('language-c', languagec);
+      console.log("hi");
+      document.querySelectorAll("pre code").forEach(block => {
+        hljs.highlightBlock(block as HTMLElement);
+        console.log("hi");
+      });
 
+    };
+    componentDidMount(){
+      this.updateCodeSyntaxHighlighting()
+    }
+    */
     return (
         <>
           <MyNavbar />
