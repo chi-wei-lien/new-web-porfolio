@@ -1,5 +1,3 @@
-import './App.css';
-
 //import custom react element
 import MyNavbar from './components/navbar/navbar';
 import LifeMotto from './components/index/LifeMotto';
