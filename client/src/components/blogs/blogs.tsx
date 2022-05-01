@@ -100,26 +100,21 @@ class Blogs extends Component<Props, State> {
       createBlogButton = <Button href={"/create_blog"} style={{marginBottom: "10px"}}>Create New Blog</Button>
     }
     return (
-      <Row>
-        <div className="projects">
-          <h1 id="my-blogs" />
-          <Container fluid>
-            {createBlogButton}
-            {this.state.stateBlog.map((blog) => {
-              return <Blog
-                        propsContent={blog.propsContent}
-                        propsName={blog.propsName}
-                        propsPicSrc={blog.propsPicSrc}
-                        propsID={blog.propsID}
-                        propsAdmin={this.state.stateAdmin}
-                        propsPublished={blog.propsPublished}
-                        propsPreview={blog.propsPreview}
-                      >
-                      </Blog>
-            })}
-          </Container>
-        </div>
-      </Row>
+      <Container fluid>
+        {createBlogButton}
+        {this.state.stateBlog.map((blog) => {
+          return <Blog
+                    propsContent={blog.propsContent}
+                    propsName={blog.propsName}
+                    propsPicSrc={blog.propsPicSrc}
+                    propsID={blog.propsID}
+                    propsAdmin={this.state.stateAdmin}
+                    propsPublished={blog.propsPublished}
+                    propsPreview={blog.propsPreview}
+                  >
+                  </Blog>
+        })}
+      </Container>
     );
   }
   
