@@ -8,7 +8,7 @@ import Footer from '../footer/newfooter';
 import Loggedin from './loggedin';
 import Admin from './admin';
 
-import { Row, Container } from 'react-bootstrap';
+import { Row, Container, Col } from 'react-bootstrap';
 
 import '../../style/index/index.css';
 
@@ -23,51 +23,32 @@ const LoginPage = () => {
   if (localStorage.getItem('admin')?.localeCompare("true") == 0) {
     return (
       <>
-        <MyNavbar />
         <Container fluid>
-          <Row>
+        <Row>
+          <Col md={3}></Col>
+          <Col md={6}>
+            <MyNavbar />
             <Admin />
-            <SelfPortrait />
-          </Row>
-          <ToolBar />
-          <Projects />
-          <Footer />
+          </Col>
+          <Col md={3}></Col>
+        </Row>
         </Container>
       </>
     );
   }
 
-  /**
-   * show that user are logged in
-   */
-  if (localStorage.getItem('user')) {
-    return (
-      <>
-        <MyNavbar />
-        <Container fluid>
-          <Row>
-            <Loggedin />
-            <SelfPortrait />
-          </Row>
-          <ToolBar />
-          <Projects />
-          <Footer />
-        </Container>
-      </>
-    );
-  }
   return (
     <>
-      <MyNavbar />
       <Container fluid>
         <Row>
-          <Login />
-          <SelfPortrait />
+          <Col md={3}></Col>
+          <Col md={6}>
+            <MyNavbar />
+            <Login />
+          </Col>
+          <Col md={3}></Col>
         </Row>
-        <ToolBar />
-        <Projects />
-        <Footer />
-      </Container>
+        </Container>
     </>
   );
 }
