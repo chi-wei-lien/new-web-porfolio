@@ -37,7 +37,7 @@ const MyNavbar = () => {
     <>
     <Navbar expand="lg" className="my-nav">
       <Container>
-        <Navbar.Brand href="#home">Chi-Wei Lien</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Chi-Wei Lien</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="basic-navbar-nav">

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import axios from "axios";
 
-import '../../style/index/Project.css';
 import '../../style/blogs/blogs.css';
 
 interface Props {
@@ -117,7 +116,7 @@ class Blog extends Component<Props, State> {
     }
     return (
       <>
-      <a href={"/blog/" + this.state.stateID}>{this.state.stateName}</a>
+      <a className="blog" href={"/blog/" + this.state.stateID}>{this.state.stateName}</a>
       {editButton}
       {deleteButton}
       {publishButton}

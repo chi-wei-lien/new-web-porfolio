@@ -5,6 +5,8 @@ import axios from 'axios';
 import Blog from './blog';
 
 import '../../style/index/SelfPortrait.css';
+import '../../style/blogs/blogs.css';
+
 
 var i = 0;
 var txt = 'My Blogs.';
@@ -101,6 +103,7 @@ class Blogs extends Component<Props, State> {
     }
     return (
       <Container fluid>
+        <h3 className="blogs">Blogs</h3>
         {createBlogButton}
         {this.state.stateBlog.map((blog) => {
           return <Blog

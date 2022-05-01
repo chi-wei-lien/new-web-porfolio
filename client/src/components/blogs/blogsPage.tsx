@@ -7,8 +7,6 @@ import Blogs from './blogs';
 
 import { Row, Container, Col } from 'react-bootstrap';
 
-import '../../style/index/index.css';
-
 //import boostrap css
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
