@@ -117,6 +117,7 @@ class Blog extends Component<Props, State> {
     return (
       <>
       <a className="blog" href={"/blog/" + this.state.stateID}>{this.state.stateName}</a>
+      <br></br>
       {editButton}
       {deleteButton}
       {publishButton}

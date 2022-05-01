@@ -15,24 +15,16 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const BlogPage = () => {
   return (
     <>
-      <MyNavbar />
       <Container fluid>
         <Row>
-          <Col className="codeBG">
-            <Container className="login">
-              <Container className="login-button-container">
-                <h1>Blogs</h1>
-                <p>Scroll down! These are my blogs. I'll post one per week. Hope you like them.</p>
-              </Container>
-            </Container>
-          </Col>
-          <SelfPortrait />
-        </Row>
-        <ToolBar />
-
-        {/* propBlog will be empty when called */}
-        <Blogs propsAdmin={ true } />
-        <Footer />
+          <Col md={3}></Col>
+          <Col md={6}>
+            <MyNavbar />
+            {/* propBlog will be empty when called */}
+            <Blogs propsAdmin={ true } />
+              </Col>
+              <Col md={3}></Col>
+            </Row>
       </Container>
     </>
   );

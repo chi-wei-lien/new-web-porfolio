@@ -98,13 +98,16 @@ class Blogs extends Component<Props, State> {
 
   render() {
     let createBlogButton;
+    let newLine;
     if (this.state.stateAdmin) {
       createBlogButton = <Button href={"/create_blog"} style={{marginBottom: "10px"}}>Create New Blog</Button>
+      newLine = <br></br>;
     }
     return (
       <Container fluid>
         <h3 className="blogs">Blogs</h3>
         {createBlogButton}
+        {newLine}
         {this.state.stateBlog.map((blog) => {
           return <Blog
                     propsContent={blog.propsContent}
