@@ -1,6 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Radio+Canada:wght@400;600&display=swap');
 
+body {
+  font-family: 'Radio Canada', sans-serif !important;
+}
+
+.intro-new {
+  margin-top: 5%;
+  margin-left: 4%;
+  margin-right: 4%;
+  font-size: 18px;
+}
+
+.self-portrait {
+  border-radius: 50%;
+  width: 300px;
+  height: auto;
+  margin-top: 10%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 @media only screen and (max-width: 780px) {
+  /*
+  .self-portrait {
+    width: 50%;
+    height: auto;
+  }
+  */
   .mobile-hide {
       display: none;
   }

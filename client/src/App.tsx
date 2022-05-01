@@ -22,6 +22,11 @@ function App() {
           <Col md={3}></Col>
           <Col md={6}>
             <MyNavbar />
+            <img src="/images/index/me.png" className="self-portrait"></img>
+            <p className="intro-new"> I'm Willy, a sophomore studying CS at Purdue University 
+            <br></br>In my free time, I enjoy: </p>
+            {/* making videos on Youtube and discovering different
+            types of cyberattacks 😃 Nice to meet you! */}
           </Col>
           <Col md={3}></Col>
         </Row>
