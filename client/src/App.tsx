@@ -19,15 +19,14 @@ function App() {
 
   return (
     <>
-      <MyNavbar />
       <Container fluid>
         <Row>
-          <LifeMotto />
-          <SelfPortrait />
+          <Col md={3}></Col>
+          <Col md={6}>
+            <MyNavbar />
+          </Col>
+          <Col md={3}></Col>
         </Row>
-        <ToolBar />
-        <Projects />
-        <Footer />
       </Container>
     </>
   );

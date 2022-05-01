@@ -29,25 +29,29 @@ const MyNavbar = () => {
     );
   }
 
-  /**
+  /*
    * the original look of the navbar when the user is not logged in
    */
+
   return (
-    <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className="my-navbar" fixed="top">
+    <>
+    <Navbar expand="lg" className="my-nav">
       <Container>
-        <Navbar.Brand as={Link} to="/">Willy, Chi-Wei Lien</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Brand href="#home">Chi-Wei Lien</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
+          <Nav className="basic-navbar-nav">
           </Nav>
           <Nav>
-            <Nav.Link as={Link} to="/who_am_i">who_am_i()</Nav.Link>
-            <Nav.Link href="/blogs">show_blogs()</Nav.Link>
-            <Nav.Link as={Link} to="/login">login()</Nav.Link>
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/who_am_i">Youtube</Nav.Link>
+            <Nav.Link href="/blogs">Projects</Nav.Link>
+            <Nav.Link as={Link} to="/login">Blogs</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 }
 
