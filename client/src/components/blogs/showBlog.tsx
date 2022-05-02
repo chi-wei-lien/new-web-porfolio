@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
-import Footer from '../footer/newfooter';
+import Footer from '../footer/footer';
 import axios from 'axios';
 import MyNavbar from '../navbar/navbar';
 

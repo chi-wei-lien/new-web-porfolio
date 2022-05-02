@@ -1,6 +1,6 @@
 //import custom react element
 import MyNavbar from './components/navbar/navbar';
-import Footer from './components/footer/newfooter';
+import Footer from './components/footer/footer';
 
 import { Row, Container, Col } from 'react-bootstrap';
 

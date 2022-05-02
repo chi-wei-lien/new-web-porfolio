@@ -3,7 +3,7 @@ import MyNavbar from '../navbar/navbar';
 import SelfPortrait from '../index/SelfPortrait';
 import ToolBar from '../index/ToolBar';
 import Projects from '../index/Projects';
-import Footer from '../footer/newfooter';
+import Footer from '../footer/footer';
 import NoAccess from './noAccess';
 
 import { Row, Container } from 'react-bootstrap';

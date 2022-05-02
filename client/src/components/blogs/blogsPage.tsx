@@ -2,7 +2,7 @@
 import MyNavbar from '../navbar/navbar';
 import SelfPortrait from '../index/SelfPortrait';
 import ToolBar from '../index/ToolBar';
-import Footer from '../footer/newfooter';
+import Footer from '../footer/footer';
 import Blogs from './blogs';
 
 import { Row, Container, Col } from 'react-bootstrap';
