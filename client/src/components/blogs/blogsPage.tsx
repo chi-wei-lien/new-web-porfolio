@@ -1,7 +1,5 @@
 //import custom react element
 import MyNavbar from '../navbar/navbar';
-import SelfPortrait from '../index/SelfPortrait';
-import ToolBar from '../index/ToolBar';
 import Footer from '../footer/footer';
 import Blogs from './blogs';
 
@@ -23,6 +21,7 @@ const BlogPage = () => {
           </Col>
           <Col md={3}></Col>
         </Row>
+        {/* <Footer></Footer> */}
       </Container>
     </>
   );
