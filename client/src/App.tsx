@@ -1,9 +1,5 @@
 //import custom react element
 import MyNavbar from './components/navbar/navbar';
-import LifeMotto from './components/index/LifeMotto';
-import SelfPortrait from './components/index/SelfPortrait';
-import ToolBar from './components/index/ToolBar';
-import Projects from './components/index/Projects';
 import Footer from './components/footer/newfooter';
 
 import { Row, Container, Col } from 'react-bootstrap';
@@ -45,6 +41,7 @@ function App() {
           <Col md={3}></Col>
         </Row>
       </Container>
+      <Footer></Footer>
     </>
   );
 }
