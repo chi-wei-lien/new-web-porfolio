@@ -11,7 +11,7 @@ const Footer = () => {
         <Row>
           <Col md="4" />
           <Col md="4">
-            <h1 id="my-social-media"> My Social Media. </h1>
+            <h3 id="my-social-media"> My Social Media. </h3>
             <a href="https://github.com/chi-wei-lien" title="github" target="_blank">
               <img id="github" src="/images/index/logo/github.png"/>
             </a>
