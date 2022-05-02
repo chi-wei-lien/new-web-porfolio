@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import axios from "axios";
 
-import '../../style/index/Project.css';
 import '../../style/blogs/blogs.css';
 
 interface Props {
@@ -117,24 +116,12 @@ class Blog extends Component<Props, State> {
     }
     return (
       <>
-      <Row className="project-gallery">
-        <Col md={4} />
-        <Col md={4} >
-          <Card className={"blog-card"}>
-            <Card.Img variant="top" src={this.state.statePicSrc} />
-            <Card.Body>
-              <Card.Title>{this.state.stateName}</Card.Title>
-              <Card.Text>{this.state.statePreview}</Card.Text>
-              <Button variant="primary" href={"/blog/" + this.state.stateID}>Read more</Button>
-              {editButton}
-              {deleteButton}
-              {publishButton}
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col md={4} />
-      </Row>
-        
+      <a className="blog" href={"/blog/" + this.state.stateID}>{this.state.stateName}</a>
+      <br></br>
+      {editButton}
+      {deleteButton}
+      {publishButton}
+      <br></br>
       </>
     );
   }

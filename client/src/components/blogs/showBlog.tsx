@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Row, Col, Container, Card, Button } from 'react-bootstrap';
-import Footer from '../footer/newfooter';
+import Footer from '../footer/footer';
 import axios from 'axios';
 import MyNavbar from '../navbar/navbar';
 
@@ -49,22 +49,22 @@ const ShowBlog = () => {
     }
     */
     return (
-        <>
-          <MyNavbar />
-          <Container fluid className='blog-canvas'>
-            <Row>
-              <Col md={3}/>
-              <Col md={6}>
-                <img src={pic} className="blog-img"></img>
+      <>
+        <Container fluid>
+          <Row>
+            <Col md={3}></Col>
+            <Col md={6}>
+              <MyNavbar />
+              <img src={pic} className="blog-img"></img>
                 <h1 className='blog-title'>{title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: content }} />
-              </Col>
-              <Col md={3}/>
-            </Row>
-            
-          </Container>
-          <Footer />
-        </>
+              
+            </Col>
+            <Col md={3}></Col>
+          </Row>
+        <Footer></Footer>
+        </Container>
+      </>
     )
 }
 

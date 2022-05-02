@@ -1,5 +1,3 @@
-.my-navbar {
-  opacity: 0.9;
-  top: 0;
-  font-family: 'Inconsolata', monospace;
+.my-nav {
+  background-color: white !important;
 }

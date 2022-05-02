@@ -1,13 +1,9 @@
 //import custom react element
 import MyNavbar from '../navbar/navbar';
-import SelfPortrait from '../index/SelfPortrait';
-import ToolBar from '../index/ToolBar';
-import Footer from '../footer/newfooter';
+import Footer from '../footer/footer';
 import Blogs from './blogs';
 
 import { Row, Container, Col } from 'react-bootstrap';
-
-import '../../style/index/index.css';
 
 //import boostrap css
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -15,24 +11,17 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const BlogPage = () => {
   return (
     <>
-      <MyNavbar />
       <Container fluid>
         <Row>
-          <Col className="codeBG">
-            <Container className="login">
-              <Container className="login-button-container">
-                <h1>Blogs</h1>
-                <p>Scroll down! These are my blogs. I'll post one per week. Hope you like them.</p>
-              </Container>
-            </Container>
+          <Col md={3}></Col>
+          <Col md={6}>
+            <MyNavbar />
+            {/* propBlog will be empty when called */}
+            <Blogs propsAdmin={ false }/>
           </Col>
-          <SelfPortrait />
+          <Col md={3}></Col>
         </Row>
-        <ToolBar />
-
-        {/* propBlog will be empty when called */}
-        <Blogs propsAdmin={ false }/>
-        <Footer />
+        {/* <Footer></Footer> */}
       </Container>
     </>
   );
