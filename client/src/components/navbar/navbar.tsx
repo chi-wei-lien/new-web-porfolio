@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 import '../../style/navbar/navbar.css'
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
