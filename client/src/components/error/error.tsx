@@ -40,8 +40,8 @@ const Error = () => {
           </Col>
           <Col md={3}></Col>
         </Row>
-      </Container>
       <Footer></Footer>
+      </Container>
     </>
   );
 }
