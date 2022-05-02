@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import WhoAml from './components/who-am-i/who';
 import LoginPage from './components/login/login-page';
 import Blogedit from './components/blogs/blogCreate';
 import Blogs from './components/blogs/blogsPage';
@@ -19,7 +18,6 @@ ReactDOM.render(
       {/* <App /> */}
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/who_am_i" element={<WhoAml />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/create_blog" element={<Blogedit />} />
