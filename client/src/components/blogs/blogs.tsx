@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import Blog from './blog';
 
-import '../../style/index/SelfPortrait.css';
 import '../../style/blogs/blogs.css';
 
 

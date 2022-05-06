@@ -9,7 +9,12 @@ a {
 }
 
 mark {
-  background-color: #fff8d5 !important;
+  /* background-color: #fff8d5 !important; */
+  background: linear-gradient(
+    to bottom,
+    transparent 55%,
+    #FFD564 45%
+  ) !important;
 }
 
 .intro-new {

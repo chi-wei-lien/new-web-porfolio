@@ -24,7 +24,7 @@ const check = () => {
     }
     let checkApiAddress = "https://chi-wei-lien.herokuapp.com/api/login/check";
 
-    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") === 0) {
       checkApiAddress = "http://localhost:5000/api/login/check";
     }
 
