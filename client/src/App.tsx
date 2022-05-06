@@ -54,7 +54,7 @@ function App() {
               <p> I'm a sophomore studying <mark>CS at Purdue University</mark>
               <br></br>In my free time, I enjoy: </p>
               <ul>
-                <li>🎬 making YouTube videos</li>
+                <li>🎬 making <mark><a href="https://www.youtube.com/channel/UCZMPBxz5CQ46l0fO0K1duRQ">YouTube videos</a></mark></li>
                 <li>👾 study different cyberattacks</li>
                 <li>♠️ perform card tricks</li>
               </ul>
