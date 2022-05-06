@@ -1,6 +1,7 @@
 //import custom react element
 import MyNavbar from './components/navbar/navbar';
 import Footer from './components/footer/footer';
+import axios from 'axios';
 
 import { Row, Container, Col } from 'react-bootstrap';
 
@@ -9,7 +10,36 @@ import './style/index/index.css';
 //import boostrap css
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
+const logout = () => {
+  localStorage.removeItem('user');
+  localStorage.removeItem('token');
+  localStorage.removeItem('admin');
+  window.location.reload();
+}
+
+const check = () => {
+  if (localStorage.getItem('token')) {
+    let token = {
+      token: localStorage.getItem('token')
+    }
+    let checkApiAddress = "https://chi-wei-lien.herokuapp.com/api/login/check";
+
+    if (process.env.REACT_APP_ENV?.localeCompare("dev") == 0) {
+      checkApiAddress = "http://localhost:5000/api/login/check";
+    }
+
+    axios.post(checkApiAddress, token, {
+      withCredentials: true
+    })
+      .catch(err => {
+        logout();
+      }); 
+  }
+  
+}
+
 function App() {
+  check();
 
   return (
     <>
